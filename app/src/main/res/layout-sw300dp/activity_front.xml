@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true">
+
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/app_theme_drawable">
+
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        />
+
+    <com.contest.competition.utils.views.MonserratBoldTv
+        android:id="@+id/appName_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contest"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:paddingTop="5dp"
+        android:gravity="center_horizontal"
+        />
+
+
+
+    <com.contest.competition.utils.views.MonserratLightTv
+        android:id="@+id/tagLine_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/you_are_one_step_away_from_being"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:paddingTop="4dp"
+        android:gravity="center_horizontal"
+        />
+    <com.contest.competition.utils.views.MonserratLightTv
+        android:id="@+id/tagLine_tvFam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/famous"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/sign_up_with_fbLl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="45dp"
+        android:padding="10dp"
+        android:background="@drawable/white_bg_round">
+
+
+
+        <ImageView
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            app:srcCompat="@drawable/fb_login_icon"
+
+            />
+
+        <com.contest.competition.utils.views.RalewayBoldTv
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in_with_facebook"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/sign_up_with_googleLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:background="@drawable/white_bg_round">
+
+
+
+        <ImageView
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            app:srcCompat="@drawable/gmail_login_icon"
+
+            />
+
+        <com.contest.competition.utils.views.RalewayBoldTv
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in_with_google"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/signUp_ll_front"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:background="@drawable/white_bg_round">
+
+
+
+        <ImageView
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            app:srcCompat="@drawable/simple_sign_icon"
+
+            />
+
+        <com.contest.competition.utils.views.RalewayBoldTv
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:textSize="16sp"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        >
+
+        <com.contest.competition.utils.views.RalewayBoldTv
+            android:id="@+id/already_account_tv_front"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/already_have_an_account_sign_in"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:gravity="center_horizontal"
+
+            />
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout></ScrollView>

@@ -1,0 +1,134 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword 'Akbar251@@'
+            storeFile file('E:/Contest-version/contest_keystore.jks')
+            storePassword 'Akbar251@@'
+        }
+    }
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.contest.competition"
+        minSdkVersion 16
+        targetSdkVersion 29
+        multiDexEnabled true
+        versionCode 17
+        versionName "1.3.10"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.config
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            signingConfig signingConfigs.config
+        }
+
+
+    }
+}
+
+
+repositories {
+    maven { url "https://jitpack.io" }
+    maven { url "http://dl.bintray.com/jlmd/maven" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    maven { url "https://maven.google.com" }
+
+}
+//apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+    implementation 'androidx.legacy:legacy-support-core-ui:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.fragment:fragment:1.1.0'
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.shehabic.droppy:Droppy:0.6.0@aar'
+    implementation 'com.mikhaellopez:circularimageview:3.0.2'
+    implementation 'com.miguelcatalan:materialsearchview:1.4.0'
+    implementation 'androidx.emoji:emoji-appcompat:1.0.0'
+    implementation 'androidx.emoji:emoji-bundled:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.androidadvance:topsnackbar:1.1.1'
+    implementation 'com.github.mrengineer13:snackbar:1.2.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+
+    implementation 'io.github.lizhangqu:coreprogress:1.0.2'
+//for progressbar uploading file to server
+    implementation 'com.tapadoo.android:alerter:2.0.4'
+    implementation 'com.github.jlmd:AnimatedCircleLoadingView:1.1.5'
+    implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
+    implementation 'com.nabinbhandari.android:permissions:3.8'
+    implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
+    implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
+    implementation 'com.github.medyo:fancybuttons:1.9.1'
+    implementation 'com.github.skydoves:powermenu:2.0.4'
+    implementation 'com.github.mohammadatif:Animatoo:master'
+
+
+//    compile("org.igniterealtime.smack:smack-android:4.2.3") {
+//
+//        exclude module: 'smack-omemo'
+//        exclude module: 'smack-omemo-signal'
+//    }
+    //  compile "org.igniterealtime.smack:smack-tcp:4.2.3"
+    // compile "org.igniterealtime.smack:smack-experimental:4.2.3"
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
+    // compile 'com.github.arturogutierrez:badges:1.0.5@aar'
+    implementation "me.leolin:ShortcutBadger:1.1.22@aar"
+    // implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.anjlab.android.iab.v3:library:1.0.44'
+
+
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.1.0'
+    implementation 'androidx.exifinterface:exifinterface:1.0.0'
+
+    implementation 'androidx.browser:browser:1.0.0'
+    implementation 'androidx.media:media:1.1.0'
+
+    implementation 'com.facebook.fresco:fresco:1.10.0'
+   // implementation 'com.facebook.fresco:fresco:2.0.0' {
+     //   exclude group: 'com.facebook.soloader', module: 'soloader'
+    //}
+
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
+
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+//    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+//    apply plugin: 'com.google.gms.google-services'
+
+    implementation 'co.chiragm.sbn:library:0.0.1'
+    implementation 'com.firebase:firebase-jobdispatcher:0.8.6'
+
+
+//    implementation 'com.github.hkk595:Resizer:v1.5'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.mreram:showcaseview:1.1'
+
+
+}

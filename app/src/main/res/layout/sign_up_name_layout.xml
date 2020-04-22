@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <com.contest.competition.utils.views.HeadingTv
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What's your name ?"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/peter"
+
+        android:padding="10dp"
+        android:textSize="28sp"/>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        app:hintTextAppearance="@style/TextInputLayoutHintText"
+        android:layout_marginTop="10dp"
+
+ >
+
+        <com.contest.competition.utils.views.QSRegularEt
+            android:id="@+id/name_sign_up_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:inputType="text"
+            android:textColor="@color/wetAsphalt"
+            android:digits="qwertyuiopasdfghjklzxcvbnm 1234567890 QWERTYUIOPASDFGHJKLZXCVBNM"
+            android:hint="Full name"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/lightSilver"/>
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

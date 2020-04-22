@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#151414</color>
+    <color name="lightSilver">#bdc3c7</color>
+    <color name="lightCloudy">#f2f4f5</color>
+    <color name="silverDark">#959799</color>
+    <color name="silverHighDark">#74787c</color>
+    <color name="wetAsphalt">#455f79</color>
+    <color name="darkBlue">#198db3</color>
+    <color name="abovePeter">#7878e1</color>
+
+    <color name="peter">#75a8de</color>
+    <color name="peterLight">#cce0f5</color>
+    <color name="lightBlue">#39aed4</color>
+    <color name="blazeHole">#e74c3c</color>
+    <color name="lightRed">#ea7c71</color>
+    <color name="emerald">#2ecc71</color>
+    <color name="neptharis">#27ae60</color>
+    <color name="lightGreen">#07e464</color>
+    <color name="amethyst">#9b59b6</color>
+    <color name="cloud">#ecf0f1</color>
+    <color name="darkWhite">#f9fafa</color>
+    <color name="greenlandgreen">#22a6b3</color>
+    <color name="app_theme_second_color">#bd3f97</color>
+    <color name="app_theme_first_color">#3E3271</color>
+    <color name="primaryTabColor">#763883</color>
+
+</resources>

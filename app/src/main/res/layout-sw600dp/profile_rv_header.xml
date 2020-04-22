@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ndroid="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp"
+    android:background="@color/white"
+    >
+
+
+
+
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+        android:background="@drawable/app_theme_drawable"
+
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            >
+
+            <ImageView
+                android:id="@+id/backActivity_pf"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+                android:layout_gravity="start"
+
+                android:src="@drawable/back_button" />
+
+
+            <com.contest.competition.utils.views.MonserratBoldTv
+                android:id="@+id/pf_headerUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text=".."
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:id="@+id/profile_activityEditPfHeader"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+
+                android:visibility="gone"
+                android:src="@drawable/edit"/>
+
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-85dp"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/pF_userProfile"
+            android:layout_height="220dp"
+            android:layout_width="220dp"
+            android:layout_gravity="center_horizontal"
+
+
+            app:civ_border_color="#fff"
+            app:civ_border_width="4dp"
+            ndroid:layout_width="160dp" />
+
+        <ImageView
+            android:id="@+id/header_editProfilePic"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/edit_profile"
+            android:layout_margin="20dp"
+            android:layout_gravity="end|bottom"
+
+            />
+
+
+        <ProgressBar
+            android:id="@+id/pFheader_pB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center_horizontal"
+
+            android:indeterminateTint="@color/app_theme_first_color" />
+
+
+    </FrameLayout>
+
+
+
+
+        <com.contest.competition.utils.views.MonserratBoldTv
+            android:id="@+id/pf_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=".."
+            android:layout_marginTop="10dp"
+
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+
+            <LinearLayout
+                android:id="@+id/competition_win_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/competition_win"/>
+                <com.contest.competition.utils.views.MonserratLightTv
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Challenges won"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/wetAsphalt"/>
+
+                <com.contest.competition.utils.views.MonserratBoldTv
+                    android:id="@+id/no_of_competition_win_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=".."
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+
+
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/competition_lose_lose_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/competition_lose"/>
+                <com.contest.competition.utils.views.MonserratLightTv
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Challenges lost"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/wetAsphalt"/>
+
+                <com.contest.competition.utils.views.MonserratBoldTv
+                    android:id="@+id/no_of_competition_loose_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=".."
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/credit_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="30dp"
+        android:visibility="gone"
+        android:paddingBottom="30dp"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:layout_marginTop="20dp"
+
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/app_theme_drawable_for_round_btn">
+        <com.contest.competition.utils.views.MonserratBoldTv
+            android:id="@+id/credits_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Credits : "
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
+
+        <com.contest.competition.utils.views.MonserratLightTv
+            android:id="@+id/no_of_credits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=".."
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/follow_btn_pfHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Follow"
+        android:stateListAnimator="@null"
+        android:elevation="1dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:textColor="@color/wetAsphalt"
+        android:background="@drawable/follow_btn"
+        android:visibility="gone"
+        />
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1.5"
+                android:gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+
+
+                <com.contest.competition.utils.views.MonserratBoldTv
+                    android:id="@+id/no_of_posts_pfHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=".."
+
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <com.contest.competition.utils.views.MonserratBoldTv
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="posts"
+                    android:textSize="21sp"
+                    android:textColor="@color/wetAsphalt"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/wetAsphalt"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                />
+
+
+
+            <LinearLayout
+                android:id="@+id/no_of_following_pfHeader_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_horizontal">
+
+                <com.contest.competition.utils.views.MonserratBoldTv
+                    android:id="@+id/no_of_following_pfHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=".."
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <com.contest.competition.utils.views.MonserratBoldTv
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="following"
+                    android:textSize="21sp"
+                    android:textColor="@color/wetAsphalt"/>
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/wetAsphalt"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                />
+
+            <LinearLayout
+                android:id="@+id/no_of_follower_pfHeader_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_horizontal">
+
+                <com.contest.competition.utils.views.MonserratBoldTv
+                    android:id="@+id/no_of_follower_pfHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=".."
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+                <com.contest.competition.utils.views.MonserratBoldTv
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="followers"
+                    android:textSize="21sp"
+                    android:textColor="@color/wetAsphalt"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+

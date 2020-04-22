@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+    <LinearLayout
+        android:id="@+id/setting_rv_header_containerLl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/settingsRvHeader_profileIv"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:civ_border_color="#000000"
+                app:civ_border_width="0dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                app:civ_shadow="false"
+                app:civ_shadow_radius="1"
+                app:civ_shadow_color="#000000"/>
+
+
+
+
+            <ProgressBar
+                android:id="@+id/settingsRvHeader_loadingProfileIv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:indeterminate="true"
+                android:indeterminateTintMode="src_atop"
+                android:indeterminateTint="@color/lightSilver"/>
+
+
+
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/settingsRvHeader_profileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center_vertical"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:paddingLeft="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:paddingRight="0dp"/>
+
+
+            <TextView
+                android:id="@+id/settingsRvHeader_profileUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dotes"
+                android:layout_gravity="center_vertical"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:paddingLeft="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="0dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

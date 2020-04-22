@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"><LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.contest.competition.utils.activities.front.posts.CreateSimplePostActivity">
+
+
+ <androidx.appcompat.widget.Toolbar
+     android:id="@+id/createSimplePost_toolbar"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:background="@color/white"
+     app:contentInsetStart="0dp">
+
+
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:padding="10dp"
+         >
+
+         <com.mikhaellopez.circularimageview.CircularImageView
+             android:id="@+id/createSimplePost_userProfile"
+             android:layout_width="50dp"
+             android:layout_height="50dp"
+             app:civ_border="true"
+             app:civ_border_width="1dp"
+             app:civ_border_color="@color/wetAsphalt"
+
+             android:layout_gravity="center_vertical"
+
+             />
+
+         <com.contest.competition.utils.views.HeadingTv
+             android:id="@+id/createSimplePost_userNameTv"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:gravity="center_vertical"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+
+             android:paddingLeft="3dp"
+             android:textSize="12sp"
+             android:textColor="@color/black"
+             android:layout_weight="1"
+             />
+
+
+
+         <com.contest.competition.utils.views.RalewayBoldButton
+             android:id="@+id/createSimplePost_postBtn"
+             android:layout_width="wrap_content"
+             android:layout_height="50dp"
+             android:layout_gravity="center_vertical"
+             android:background="@color/darkBlue"
+             android:onClick="setPostBtn"
+             android:text="Post"
+            />
+
+
+     </LinearLayout>
+
+ </androidx.appcompat.widget.Toolbar>
+
+
+  <androidx.emoji.widget.EmojiEditText
+      android:id="@+id/createSimplePost_et"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="10dp"
+      android:textSize="20sp"
+      android:hint="What do you say ? Type it"
+      android:textColor="@color/wetAsphalt"
+      android:autoLink="all"
+      android:background="@android:color/transparent"/>
+
+
+
+   <com.contest.competition.utils.views.RalewayBoldButton
+       android:id="@+id/createSimplePost_selectPhotoBtn"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="10dp"
+       android:textSize="20sp"
+       android:onClick="setSelectPhotoBtn"
+       android:background="@drawable/green_button"
+       android:text="Select a photo"/>
+
+
+
+
+    <ImageView
+        android:id="@+id/createSimplePost_selectedPhotoIv"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        />
+
+
+</LinearLayout></androidx.core.widget.NestedScrollView>
+

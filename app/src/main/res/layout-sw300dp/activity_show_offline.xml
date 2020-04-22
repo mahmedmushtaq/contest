@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.contest.competition.utils.activities.launching.ShowOfflineActivity">
+
+
+    <ImageView
+        android:id="@+id/offlineIv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/offline_mode"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        />
+
+    <com.contest.competition.utils.views.HeadingTv
+        android:id="@+id/offlineTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/offlineIv"
+        android:padding="20dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:text="Offline !"/>
+
+
+    <com.contest.competition.utils.views.QuickSandRegularTv
+        android:id="@+id/offline_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/offlineTv"
+        android:layout_centerHorizontal="true"
+        android:text="Retry ?"
+        android:textSize="18sp"
+        android:textColor="@color/peter"/>
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <com.contest.competition.utils.views.HeadingTv
+        android:id="@+id/name_general"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dotes"
+        android:textColor="@color/black"
+        android:textSize="21sp"/>
+
+     <com.contest.competition.utils.views.QuickSandRegularTv
+         android:id="@+id/username_general"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textSize="17sp"
+         android:textColor="@color/wetAsphalt"
+         android:text="@string/dotes"/>
+
+
+</LinearLayout>

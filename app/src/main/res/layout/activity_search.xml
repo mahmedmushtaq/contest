@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/primaryTabColor"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        >
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MaterialSearchBarLight"
+        app:mt_speechMode="true"
+        app:mt_hint="Search user by name or username"
+        app:mt_maxSuggestionsCount="10"
+        app:mt_textColor="@color/white"
+        app:mt_hintColor="@color/white"
+        app:mt_backIconTint="@color/white"
+        app:mt_clearIconTint="@color/white"
+        app:mt_searchIconTint="@color/white"
+        app:mt_searchBarColor="@color/primaryTabColor"
+        android:id="@+id/searchBar"
+        app:mt_placeholderColor="@color/white"
+        app:mt_placeholder="Search User"
+       />
+    </LinearLayout>
+
+
+    <!--    <include android:id="@+id/search_toolbar_searchInclude"-->
+<!--        layout="@layout/search_toolbar"/>-->
+
+    <ProgressBar
+        android:id="@+id/search_progressBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:indeterminateTint="@color/lightSilver"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchActivity_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingStart="5dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:paddingRight="5dp"
+        android:paddingEnd="5dp"/>
+
+
+
+
+</LinearLayout>

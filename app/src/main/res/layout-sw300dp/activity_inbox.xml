@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/primaryTabColor"
+        android:layout_marginBottom="10dp"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/inbox_previous_btn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back_button"
+            android:layout_marginLeft="5dp"
+            android:onClick="backBtn"
+            android:layout_marginRight="5dp"/>
+
+        <com.contest.competition.utils.views.HeadingTv
+            android:id="@+id/inbox_activity_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dotes"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:padding="13dp"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:id="@+id/inbox_activity_visit_profile"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/message_profile_info"
+            android:layout_marginLeft="5dp"
+            android:onClick="visitProfile"
+            android:layout_marginRight="5dp"/>
+
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/inbox_gallery"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/gallery_message_icon"
+                android:layout_gravity="bottom"
+                android:layout_margin="5dp"/>
+
+
+        <androidx.emoji.widget.EmojiEditText
+            android:id="@+id/inbox_emojiEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/wetAsphalt"
+            style="@android:style/TextAppearance.DeviceDefault.Small"
+            android:backgroundTint="@color/app_theme_second_color"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="17sp"
+            android:hint="@string/your_message"
+            android:inputType="textMultiLine"
+
+            android:imeOptions="actionSend"
+            />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/inbox_sendMessage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+
+                android:src="@drawable/send_message"
+                android:layout_gravity="bottom"
+                android:layout_margin="5dp"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

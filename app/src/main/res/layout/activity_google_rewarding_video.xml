@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+   >
+
+    ...
+
+    <!-- Copy this Watch Video Button -->
+    <com.contest.competition.utils.views.RalewayBoldButton
+        android:id="@+id/watch_video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="showRewardedVideo"
+        android:text="Watch videos for diamonds"
+        android:padding="20dp"
+        android:background="@color/darkBlue"/>
+
+
+
+</RelativeLayout>

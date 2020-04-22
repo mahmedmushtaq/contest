@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_theme_drawable"
+    android:fillViewport="true"
+
+    xmlns:fancy="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/loginContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        >
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            />
+
+        <com.contest.competition.utils.views.MonserratBoldTv
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contest"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            android:paddingTop="5dp"
+            android:gravity="center_horizontal"
+            />
+
+
+
+        <com.contest.competition.utils.views.MonserratLightTv
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You are one step away from being"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:paddingTop="4dp"
+            android:gravity="center_horizontal"
+            />
+        <com.contest.competition.utils.views.MonserratLightTv
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FAMOUS !"
+            android:textSize="28sp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"/>
+
+
+
+
+        <com.contest.competition.utils.views.MonserratBoldTv
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign in here"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            />
+
+
+
+        <com.contest.competition.utils.views.QSRegularEt
+            android:id="@+id/email_login_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="20dp"
+            android:textSize="28sp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="@color/lightCloudy"
+            android:backgroundTint="@color/white"
+
+            />
+
+
+
+        <com.contest.competition.utils.views.QSRegularEt
+            android:id="@+id/password_login_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="20dp"
+            android:textSize="28sp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/lightCloudy"
+            android:backgroundTint="@color/white"
+            />
+
+
+
+
+
+        <CheckBox
+            android:id="@+id/remember_me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember me"
+            android:textSize="28sp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="end"
+            android:buttonTint="@color/white"
+            android:textColor="@color/white"
+            />
+
+
+
+
+        <Button
+            android:id="@+id/loginBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingLeft="80dp"
+            android:paddingRight="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Sign In"
+            android:stateListAnimator="@null"
+            android:elevation="5dp"
+            android:textSize="28sp"
+            android:background="@drawable/white_bg_round"
+            android:textColor="@color/app_theme_second_color"/>
+
+
+
+
+
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:gravity="center_horizontal">-->
+
+        <!--            <ImageView-->
+        <!--                android:layout_width="50dp"-->
+        <!--                android:layout_height="50dp"-->
+        <!--                android:layout_marginRight="10dp"-->
+        <!--                android:layout_marginLeft="10dp"-->
+        <!--                android:src="@drawable/fb_white_login_icon"/>-->
+
+        <!--            <ImageView-->
+        <!--                android:layout_width="50dp"-->
+        <!--                android:layout_height="50dp"-->
+        <!--                android:layout_marginRight="10dp"-->
+        <!--                android:layout_marginLeft="10dp"-->
+        <!--                android:src="@drawable/gm_white_login_icon"/>-->
+
+        <!--        </LinearLayout>-->
+
+        <com.contest.competition.utils.views.RalewayBoldTv
+            android:id="@+id/forgotPassword_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forgot password ? "
+            android:textSize="30sp"
+
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"/>
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

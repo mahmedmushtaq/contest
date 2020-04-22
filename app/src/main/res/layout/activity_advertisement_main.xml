@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+ >
+
+   <include
+       android:id="@+id/advertisement_mainToolbar"
+       layout="@layout/toolbar"/>
+
+
+    <com.contest.competition.utils.views.HeadingTv
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/you_can_earn_credit_by_winning_contests_or_watching_video"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/wetAsphalt"
+        android:padding="15dp"
+        android:textAlignment="center"/>
+
+    <com.contest.competition.utils.views.RalewayBoldButton
+        android:id="@+id/advertisement_mainBuyCredits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="20dp"
+        android:background="@color/primaryTabColor"
+        android:text="@string/buy_credits"
+        android:padding="15dp"
+        android:textSize="19sp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

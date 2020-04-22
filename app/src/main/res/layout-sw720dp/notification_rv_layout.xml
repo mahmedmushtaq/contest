@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/notification_rv_layout_Ll"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingEnd="2dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="2dp"
+    android:paddingStart="5dp"
+    android:paddingTop="5dp"
+    android:background="@color/lightCloudy"
+    android:layout_weight="1"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/notification_profileIv"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            app:civ_border_color="#000000"
+            app:civ_border_width="1dp"
+            app:civ_shadow="false"
+
+            android:layout_marginRight="10dp"
+            app:civ_shadow_color="#000000"
+            app:civ_shadow_radius="1" />
+
+
+
+            <com.contest.competition.utils.views.QuickSandRegularTv
+                android:id="@+id/notification_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:textSize="22sp"
+                android:layout_gravity="center_vertical"
+                android:text="M Ahmed Mushtaq start following you"/>
+
+
+
+
+
+
+</LinearLayout>

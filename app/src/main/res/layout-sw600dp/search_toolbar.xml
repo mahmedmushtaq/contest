@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/searchActivity_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/darkBlue"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+
+        app:contentInsetStartWithNavigation="0dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.contest.competition.utils.views.QSRegularEt
+                    android:id="@+id/search_Et"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Search Your Friends"
+                    android:imeOptions="actionSearch"
+                    android:imeActionLabel="Search"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:textSize="27sp"
+                    android:layout_weight="1"
+                    android:textColorHint="@color/white"
+                    android:background="@android:color/transparent"
+                    />
+                <ImageView
+                    android:id="@+id/search_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="Search View"
+                    android:src="@drawable/ic_action_action_search"/>
+
+            </LinearLayout>
+
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginEnd="40dp"
+                android:background="@color/peterLight"
+                android:foregroundGravity="bottom"
+                />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+</LinearLayout>

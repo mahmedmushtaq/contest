@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    app:cardMaxElevation="5dp"
+    app:cardCornerRadius="2dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/lightCloudy">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/contest_creatorProfile"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginRight="5dp"
+                app:civ_border_width="1dp"
+                />
+
+            <com.contest.competition.utils.views.MonserratBoldTv
+                android:id="@+id/contest_creatorName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dotes"
+                android:textColor="@color/wetAsphalt"
+                android:textSize="13sp"
+                android:padding="10dp"
+                android:layout_gravity="center_vertical"/>
+
+            <Button
+                android:id="@+id/contest_features_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:text="features"
+                android:visibility="gone"
+                android:textColor="@color/peter"
+                android:stateListAnimator="@null"
+                android:elevation="1dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:textSize="12sp"
+                android:background="@drawable/follow_btn"
+                android:layout_gravity="center_vertical"
+                />
+
+
+
+
+
+
+        </LinearLayout>
+
+        <com.contest.competition.utils.views.QuickSandRegularTv
+            android:id="@+id/contest_tillTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/lightRed"
+            android:text="@string/dotes"/>
+
+
+
+
+        <!--        here contest show-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:padding="10dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/contest_leftSidePic"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            />
+
+                        <ImageView
+                            android:id="@+id/contest_leftSideDoubleTapStar"
+                            android:layout_width="43dp"
+                            android:layout_height="43dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/filled_star"/>
+
+                    </FrameLayout>
+
+
+
+                    <com.contest.competition.utils.views.MonserratBoldTv
+                        android:id="@+id/contest_leftSideName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dotes"
+                        android:padding="10dp"
+                        android:textSize="12sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wetAsphalt"
+                        android:background="@color/white"/>
+                    <com.contest.competition.utils.views.MonserratBoldTv
+                        android:id="@+id/contest_leftSideVote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:textSize="12sp"
+                        android:textColor="@color/wetAsphalt"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:padding="10dp">
+
+                    <FrameLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/contest_rightSidePic"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            />
+
+                        <ImageView
+                            android:id="@+id/contest_rightSideDoubleTapStar"
+                            android:layout_width="43dp"
+                            android:layout_height="43dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/filled_star"/>
+
+
+                    </FrameLayout>
+
+
+
+                    <com.contest.competition.utils.views.MonserratBoldTv
+                        android:id="@+id/contest_rightSideName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dotes"
+                        android:padding="10dp"
+                        android:textSize="12sp"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/wetAsphalt"
+                        android:background="@color/white"/>
+                    <com.contest.competition.utils.views.MonserratBoldTv
+                        android:id="@+id/contest_rightSideVote"
+                        android:layout_width="match_parent"
+                        android:textColor="@color/wetAsphalt"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:padding="5dp"
+                        android:textSize="12sp"
+                        />
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/contest_leftSideUserWin"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:visibility="gone"
+                android:src="@drawable/competition_win"/>
+
+            <ImageView
+                android:id="@+id/contest_rightSideUserWin"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="end"
+                android:visibility="gone"
+                android:src="@drawable/competition_win"/>
+
+
+            <ImageView
+                android:id="@+id/contest_tie"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                android:visibility="gone"
+                android:src="@drawable/tie"/>
+
+
+
+
+            <ProgressBar
+                android:id="@+id/contest_leftSidePb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginLeft="60dp"
+                android:layout_marginBottom="30dp"
+                android:visibility="gone"
+                />
+
+            <ProgressBar
+                android:id="@+id/contest_rightSidePb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginRight="60dp"
+                android:visibility="gone"
+                android:layout_marginBottom="30dp"
+                />
+
+
+
+        </FrameLayout>
+
+
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/contest_vote"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/empty_star"/>
+
+            <ImageView
+                android:id="@+id/contest_comment"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/empty_comment"/>
+
+            <ImageView
+                android:id="@+id/contest_share"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/share_contest"/>
+
+
+            <com.contest.competition.utils.views.RalewayBoldTv
+                android:id="@+id/contest_dataTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=".."
+                android:gravity="end"
+                android:textSize="12sp"
+                android:textColor="@color/peter"
+                android:paddingRight="20dp"
+                android:layout_gravity="center_vertical|end"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/contest_postTotalLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:background="@color/white"
+            >
+
+
+            <ImageView
+
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/filled_star"/>
+
+            <com.contest.competition.utils.views.MonserratBoldTv
+                android:id="@+id/contest_totalNumVotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/dotes"
+                android:layout_gravity="center_vertical"/>
+
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/filled_comment"/>
+
+            <com.contest.competition.utils.views.MonserratBoldTv
+                android:id="@+id/contest_totalComments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text=".."
+                android:layout_gravity="center_vertical"/>
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/filled_eye"/>
+
+            <com.contest.competition.utils.views.MonserratBoldTv
+                android:id="@+id/contest_totalSeen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text=".."
+                android:layout_gravity="center_vertical"/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</LinearLayout>

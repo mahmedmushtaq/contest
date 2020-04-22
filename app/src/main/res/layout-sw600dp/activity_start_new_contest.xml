@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.contest.competition.online.contest.contest.utils.activities.front.StartNewContestActivity">
+
+
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/startNewContest_selectedPic"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        app:civ_border="true"
+        app:civ_border_width="1dp"
+        app:civ_border_color="@color/wetAsphalt"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+
+    <com.contest.competition.utils.views.HeadingTv
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_a_user_to_send_competition"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="22sp"
+        android:padding="10dp"/>
+
+    <com.contest.competition.utils.views.RalewayBoldButton
+        android:id="@+id/startNewContest_selectBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:background="@color/primaryTabColor"
+        android:text="Select "
+        android:paddingLeft="45dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp"
+        android:textSize="22sp"
+        android:paddingRight="45dp"
+        android:layout_marginTop="10dp"/>
+
+    <com.contest.competition.utils.views.QuickSandRegularTv
+        android:id="@+id/startNewContest_selectedUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text=""
+        android:textColor="@color/wetAsphalt"
+        android:layout_marginTop="10dp"/>
+
+    <com.contest.competition.utils.views.HeadingTv
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contest continue till"
+        android:padding="10dp"
+        android:textSize="22sp"
+        android:textColor="@color/black"/>
+
+
+    <Spinner
+        android:id="@+id/startNewContest_selectTillTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        />
+
+
+    <com.contest.competition.utils.views.RalewayBoldButton
+        android:id="@+id/startNewContest_sendCompetition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:textSize="20sp"
+        android:padding="20dp"
+        android:background="@color/primaryTabColor"
+        android:text="Send Competition"/>
+
+    <ImageView
+        android:id="@+id/refresh_startNewContestActivity"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/refresh"
+        android:layout_gravity="bottom|center_horizontal"/>
+
+</LinearLayout>
+</ScrollView>

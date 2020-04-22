@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.contest.competition.utils.activities.front.posts.CheckWhoVotesCommentsAndSeenActivity">
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/check_whoVotesCommentsAndSeenTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabTextColor="@color/wetAsphalt"
+        app:tabSelectedTextColor="@color/black"/>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/check_whoVotesCommentsAndSeenVp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       />
+
+
+
+
+</LinearLayout>

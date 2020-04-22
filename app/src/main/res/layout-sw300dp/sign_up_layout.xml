@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_theme_drawable"
+    android:fillViewport="true"
+
+    xmlns:fancy="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sign_up_layout_container"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            />
+
+        <com.contest.competition.utils.views.MonserratBoldTv
+            android:id="@+id/appName_signUpTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contest"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:paddingTop="5dp"
+            android:gravity="center_horizontal"
+            />
+
+
+
+        <com.contest.competition.utils.views.MonserratLightTv
+            android:id="@+id/tagLine_signUpTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You are one step away from being"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingTop="4dp"
+            android:gravity="center_horizontal"
+            />
+        <com.contest.competition.utils.views.MonserratLightTv
+            android:id="@+id/tagLine_signUpTvFam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FAMOUS !"
+            android:textSize="16sp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"/>
+
+
+
+
+        <com.contest.competition.utils.views.MonserratBoldTv
+            android:id="@+id/create_an_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create an account"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            />
+
+        <com.contest.competition.utils.views.QSRegularEt
+            android:id="@+id/full_name_signUpEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="20dp"
+            android:textSize="16sp"
+            android:hint="Full Name"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/lightCloudy"
+            android:backgroundTint="@color/white"
+            />
+
+
+        <com.contest.competition.utils.views.QSRegularEt
+            android:id="@+id/email_signUpEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="20dp"
+            android:textSize="16sp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/white"
+            android:textColorHint="@color/lightCloudy"
+            android:backgroundTint="@color/white"
+            />
+
+
+
+        <com.contest.competition.utils.views.QSRegularEt
+            android:id="@+id/password_signUpEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="20dp"
+            android:textSize="16sp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/lightCloudy"
+            android:backgroundTint="@color/white"
+            />
+
+        <com.contest.competition.utils.views.QSRegularEt
+            android:id="@+id/repeatPassword_signUpEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="20dp"
+            android:textSize="16sp"
+            android:hint="Repeat password"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/lightCloudy"
+            android:backgroundTint="@color/white"
+            />
+
+
+
+        <CheckBox
+            android:id="@+id/checkbox_signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agree to terms and conditions"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="end"
+            android:textSize="16sp"
+            android:buttonTint="@color/white"
+            android:textColor="@color/white"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+
+            >
+
+
+
+
+            <Button
+                android:id="@+id/signUpBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+
+
+                android:text="Sign up"
+                android:stateListAnimator="@null"
+                android:elevation="5dp"
+
+                android:background="@drawable/white_bg_round"
+                android:textColor="@color/app_theme_second_color"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

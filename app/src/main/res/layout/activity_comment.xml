@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/commentSwipe"
+    android:layout_height="match_parent">
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.contest.competition.online.contest.contest.utils.activities.contestactivities.CommentActivity">
+
+
+
+    <com.contest.competition.utils.views.HeadingTv
+        android:id="@+id/total_commentsTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+
+        android:text="0 comments"
+        android:textColor="@color/black"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/lightSilver"/>
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/comment_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            />
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+
+        android:orientation="horizontal">
+
+
+
+        <androidx.emoji.widget.EmojiEditText
+            android:id="@+id/comments_emojiEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/wetAsphalt"
+            android:textColorHint="@color/lightSilver"
+            style="@android:style/TextAppearance.DeviceDefault.Small"
+            android:background="@android:color/transparent"
+            android:padding="15dp"
+            android:textSize="18sp"
+            android:hint="Write your comments here"
+            android:inputType="text"
+            android:imeOptions="actionSend"
+          />
+
+        <ImageView
+            android:id="@+id/comments_send"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/send"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

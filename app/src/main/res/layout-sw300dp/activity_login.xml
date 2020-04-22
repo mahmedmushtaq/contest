@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusableInTouchMode="true"
+    android:id="@+id/loginContainer"
+    >
+
+
+
+    <ImageView
+        android:id="@+id/loginBulbIv"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/icon_contest"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"/>
+
+
+
+
+    <com.contest.competition.utils.views.HeadingTv
+        android:id="@+id/loginHeadingTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/loginBulbIv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="10dp"/>
+
+    <View
+        android:layout_width="30dp"
+        android:layout_height="1dp"
+        android:background="@color/lightSilver"
+        app:layout_constraintTop_toBottomOf="@+id/loginHeadingTv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="15dp"
+        />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        app:hintTextAppearance="@style/TextInputLayoutHintText"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/password_login_Tl"
+
+        >
+
+        <com.contest.competition.utils.views.QSRegularEt
+            android:id="@+id/email_login_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/wetAsphalt"
+
+            android:hint="Email"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/lightSilver"/>
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_login_Tl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_margin="10dp"
+        app:hintTextAppearance="@style/TextInputLayoutHintText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        >
+
+        <com.contest.competition.utils.views.QSRegularEt
+            android:id="@+id/password_login_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:inputType="textPassword"
+            android:textColor="@color/wetAsphalt"
+
+            android:hint="@string/password"
+            android:textColorHint="@color/black"
+            android:backgroundTint="@color/lightSilver"/>
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.contest.competition.utils.views.RalewayBoldButton
+        android:id="@+id/loginBtn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/password_login_Tl"
+        android:layout_margin="20dp"
+        android:background="@color/darkBlue"
+        android:text="Login"/>
+
+    <com.contest.competition.utils.views.QuickSandRegularTv
+        android:id="@+id/forgotPassword_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="20dp"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:text="Forgot Password ?"/>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

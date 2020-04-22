@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="7dp"
+    android:paddingRight="7dp"
+    android:paddingTop="7dp"
+    android:id="@+id/conversation_view_container_ll"
+    android:paddingBottom="7dp">
+
+
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/conversation_userProfile"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+
+        android:layout_gravity="center_vertical"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.contest.competition.utils.views.HeadingTv
+            android:id="@+id/conversation_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dotes"
+            android:layout_weight="1"
+            android:layout_marginTop="2dp"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            />
+
+        <com.contest.competition.utils.views.HeadingTv
+            android:id="@+id/conversation_dateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dotes"
+            android:layout_marginTop="2dp"
+            android:textSize="15sp"
+            android:textColor="@color/peter"
+            android:layout_gravity="center_vertical"
+            />
+    </LinearLayout>
+
+     <com.contest.competition.utils.views.QuickSandRegularTv
+            android:id="@+id/conversation_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/dotes"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

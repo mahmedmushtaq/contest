@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:padding="10dp">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/search_userProfilePic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="5dp"
+             />
+
+        <LinearLayout
+            android:id="@+id/search_userOpenProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+        <com.contest.competition.utils.views.MonserratBoldTv
+            android:id="@+id/search_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text=".."
+            android:textColor="@color/black"
+            android:textSize="14sp"
+
+            android:layout_gravity="center_vertical"/>
+
+            <com.contest.competition.utils.views.MonserratLightTv
+                android:id="@+id/search_userUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/wetAsphalt"
+                android:text=".."
+                />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/search_userFollowBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Follow"
+            android:stateListAnimator="@null"
+            android:elevation="1dp"
+            android:paddingLeft="15dp"
+            android:textSize="12sp"
+            android:paddingRight="15dp"
+            android:textColor="@color/peter"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/follow_btn"/>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+

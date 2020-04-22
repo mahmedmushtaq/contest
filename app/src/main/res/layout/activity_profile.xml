@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/lightCloudy"
+   >
+<!--    <android.support.v7.widget.Toolbar-->
+<!--       android:id="@+id/profile_activityToolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--         android:background="@drawable/profile_header_bg2"-->
+
+<!--        >-->
+
+
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/toolbar_for_all_LL"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="end">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/profile_activityEdit"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/edit"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:layout_gravity="end"/>-->
+
+<!--        </LinearLayout>-->
+
+
+<!--    </android.support.v7.widget.Toolbar>-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/toolbar_for_all_LL"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/app_theme_drawable"-->
+
+
+<!--        >-->
+<!--        <ImageView-->
+<!--            android:id="@+id/backActivity_pf"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="20dp"-->
+<!--            android:layout_gravity="start"-->
+
+<!--            android:src="@drawable/back_button" />-->
+
+
+<!--        <com.contest.competition.utils.views.MonserratBoldTv-->
+
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="M Ahmed Mushtaq"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="18sp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/profile_activityEdit"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="20dp"-->
+<!--            android:visibility="gone"-->
+<!--            android:src="@drawable/edit"/>-->
+
+
+<!--    </LinearLayout>-->
+
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshProfileLayout"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/peter"
+        android:layout_height="match_parent">
+
+     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/profile_activityRv"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

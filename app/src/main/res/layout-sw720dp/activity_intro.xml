@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:background="@color/lightCloudy">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusableInTouchMode="true"
+        >
+
+
+
+        <ImageView
+            android:id="@+id/IntroIv"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/icon_contest"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="20dp"/>
+
+
+
+        <com.contest.competition.utils.views.HeadingTv
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/IntroIv"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+
+            android:text="You are only one step away to become popular "
+            app:layout_constraintBottom_toTopOf="@+id/introFullNameEt"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+
+
+
+        <TextView
+            android:id="@+id/introFullNameEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_et"
+            android:layout_margin="20dp"
+            android:text="@string/full_name"
+            android:textSize="25sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="25dp"
+
+            />
+
+        <com.contest.competition.utils.views.RalewayBoldButton
+            android:id="@+id/startBtn_intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/introFullNameEt"
+            android:layout_margin="20dp"
+            android:textSize="25sp"
+            android:padding="25dp"
+            android:text="Start signing up"
+            android:background="@drawable/confirm_button"/>
+
+
+        <com.contest.competition.utils.views.QuickSandRegularTv
+            android:id="@+id/termsAndCondtionsTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startBtn_intro"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:textSize="22sp"
+            android:text="By singing up you are agree to our terms and conditions"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/introLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/termsAndCondtionsTv"
+            android:gravity="center_horizontal"
+            android:layout_margin="20dp"
+            >
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/lightSilver"
+                android:layout_marginRight="10dp"/>
+
+        <com.contest.competition.utils.views.HeadingTv
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Or"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_horizontal"/>
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/lightSilver"/>
+        </LinearLayout>
+
+
+
+        <com.contest.competition.utils.views.HeadingTv
+            android:id="@+id/intro_alreadyHaveAnAccountTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/introLl"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="Already have an account ?"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:layout_margin="20dp"/>
+
+
+        <com.contest.competition.utils.views.QuickSandRegularTv
+            android:id="@+id/loginHereTvIntro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/introLl"
+            app:layout_constraintLeft_toRightOf="@+id/intro_alreadyHaveAnAccountTv"
+            android:layout_margin="20dp"
+            android:text="Login Here"
+            android:textSize="25sp"
+            android:textColor="@color/peter"/>
+
+
+        <com.contest.competition.utils.views.HeadingTv
+            android:id="@+id/startTutorial_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Start tutorial"
+            android:layout_margin="20dp"
+            android:textSize="25sp"
+            android:textColor="@color/lightRed"/>
+
+        <com.contest.competition.utils.views.QuickSandRegularTv
+            android:id="@+id/features_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="Features"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:paddingBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/startTutorial_intro"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
