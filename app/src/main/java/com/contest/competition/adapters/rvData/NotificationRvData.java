@@ -2,6 +2,7 @@ package com.contest.competition.adapters.rvData;
 
 import android.content.Context;
 import android.text.Spannable;
+import android.util.Log;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
@@ -10,6 +11,7 @@ import com.contest.competition.adapters.holders.NotificationRvHolder;
 import com.contest.competition.classes.HighLighter;
 import com.contest.competition.classes.interfaces.recyclerviewinterfaces.NotificationRvListener;
 import com.contest.competition.classes.models.ArrayHolder;
+import com.contest.competition.classes.models.NotificationData;
 import com.contest.competition.classes.webfiles.Addresses;
 
 public class NotificationRvData {
@@ -18,7 +20,13 @@ public class NotificationRvData {
     private int position;
     private ArrayHolder mArrayHolder;
     private NotificationRvListener mListener;
-    private com.contest.competition.classes.models.NotificationData data;
+    private NotificationData data;
+
+
+    public void setListener(NotificationRvListener listener){
+        this.mListener = listener;
+    }
+
 
     public void setArrayHolder(ArrayHolder arrayHolder) {
         mArrayHolder = arrayHolder;
@@ -32,14 +40,19 @@ public class NotificationRvData {
         mContext = context;
     }
 
+    public void setNotificationData(NotificationData data){
+        this.data = data;
+    }
+
     public void setHolder(NotificationRvHolder holder) {
         this.holder = holder;
     }
 
 
     public void putNotificationData(){
+  //   if(data == null) return;
 
-
+//        Log.e("ntoficiation rv data", "putNotificationData: "+data.getName() );
 
 
         if (position == mArrayHolder.getNotificationData().size() - 1) {
@@ -47,6 +60,12 @@ public class NotificationRvData {
         }
 
         Glide.with(mContext).load(Addresses.getWebAddress() + data.getProfilePics()).into(holder.getNotificationProfile());
+
+//       try{
+//
+//       }catch(NullPointerException e){
+//           Log.e("tag", "putNotificationData: Null Pointer exception " );
+//       }
         // holder.notificationTv.setText(data.getName()+" "+data.getMessage()+"  "+data.getDateTime());
         // String name = HighLighter.capitalFirstLetter(data.getName());
         String name = HighLighter.capitalEachWordFirstLetter(data.getName());

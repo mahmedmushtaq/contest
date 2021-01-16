@@ -73,6 +73,7 @@ public class NotificationActivity extends BaseActivity {
                 notificationPb.setVisibility(View.GONE);
                 mRefreshLayout.setRefreshing(false);
                 if(notificationData != null) {
+                  //  Log.e("loadData", "onLoading: load data "+notificationData.get(0) );
                     mArrayHolder.setNotificationData(notificationData);
                     rv.setArrayHolder(mArrayHolder);
                     rv.notifyDataSetChanged();

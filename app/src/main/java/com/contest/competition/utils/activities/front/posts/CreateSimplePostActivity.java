@@ -111,7 +111,7 @@ public class CreateSimplePostActivity extends AppCompatActivity {
          }else if(mSelectedImageFile == null && !typeTextEt.getText().toString().isEmpty()){
 
              //send simple status to server
-             UploadSimpleStatus.uploadSimpleStatus(CreateSimplePostActivity.this,typeTextEt.getText().toString(),mPrefer.getUsername());
+              UploadSimpleStatus.uploadSimpleStatus(CreateSimplePostActivity.this,typeTextEt.getText().toString(),mPrefer.getUsername());
 
 
          }else if(mSelectedImageFile != null && !typeTextEt.getText().toString().isEmpty()){

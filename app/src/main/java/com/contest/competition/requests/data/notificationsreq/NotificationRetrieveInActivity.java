@@ -93,6 +93,7 @@ public class NotificationRetrieveInActivity {
 
     private void setNotificationData(JSONObject object) throws  JSONException{
 
+
         String usernames = object.getString("usernames");
         String names = object.getString("names");
         String profilePics = object.getString("profile_pics");
@@ -115,9 +116,13 @@ public class NotificationRetrieveInActivity {
 
 
         for(int i = 0 ; i < usernamesArray.length() ; i++){
+
             NotificationData data = new NotificationData(namesArray.getString(i),usernamesArray.getString(i),messagesArray.getString(i),profilePicsArray.getString(i),linksArray.getString(i),openedArray.getString(i),viewedArray.getString(i),timeMessagesArray.getString(i),idArray.getInt(i));
+          //  Log.e("retrieveNotData", "setNotificationData: "+data.getName() );
             mArrayHolder.setNotificationData(data);
         }
+
+
 
 
 

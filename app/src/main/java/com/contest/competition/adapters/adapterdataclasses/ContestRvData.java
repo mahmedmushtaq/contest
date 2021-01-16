@@ -227,12 +227,12 @@ public class ContestRvData {
         });
 
 
-        body.shareContest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ShareApp.shareText((Activity)mContext,data.getContestLink());
-            }
-        });
+//        body.shareContest.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ShareApp.shareText((Activity)mContext,data.getContestLink());
+//            }
+//        });
 
 
 

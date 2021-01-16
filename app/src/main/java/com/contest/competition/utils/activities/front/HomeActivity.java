@@ -90,7 +90,7 @@ public class HomeActivity extends BaseActivity {
         mRecyclerView = findViewById(R.id.home_rv);
         homeRvPb = findViewById(R.id.homeRvPb);
         swipe = findViewById(R.id.swipeHome);
-        openConversation = findViewById(R.id.home_openConversations);
+       // openConversation = findViewById(R.id.home_openConversations);
         swipe.setRefreshing(false);
 
 
@@ -100,6 +100,7 @@ public class HomeActivity extends BaseActivity {
         mHomeActivityClass.setRecyclerView(mRecyclerView);
         mHomeActivityClass.setSwipe(swipe);
         mHomeActivityClass.setPb(homeRvPb);
+        mHomeActivityClass.rvListener();
 
         mIntroSharedPreference  =new IntroSharedPreference(this);
 
@@ -116,13 +117,13 @@ public class HomeActivity extends BaseActivity {
 
 
 
-        openConversation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ConversationActivity.class));
-                Animatoo.animateSlideLeft(HomeActivity.this);
-            }
-        });
+//        openConversation.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getBaseContext(),ConversationActivity.class));
+//                Animatoo.animateSlideLeft(HomeActivity.this);
+//            }
+//        });
 
 
         newPostBtn = findViewById(R.id.fab_new_post);

@@ -421,13 +421,13 @@ public class ProfileRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //            }
 
 
-            holder1.sendMessageBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(mProfileListener != null)
-                        mProfileListener.onClickSendMessage(data);
-                }
-            });
+//            holder1.sendMessageBtn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if(mProfileListener != null)
+//                        mProfileListener.onClickSendMessage(data);
+//                }
+//            });
 
 
                 holder1.followBtn.setOnClickListener(new View.OnClickListener() {
@@ -468,7 +468,7 @@ public class ProfileRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         CircularImageView profilePic;
         TextView username,creditsText,name,noOfCompetitionWin,noOfCompetitionLoose,noOfCredits,noOfPosts,noOfFollowing,noOfFollower;
         LinearLayout creditsLl,noOfFollowingll,noOfFollowerll,otherUserProfileLl;
-        Button followBtn,sendMessageBtn;
+        Button followBtn;
         ProgressBar pb;
         ImageView backActvityIcon,edit,profilePicEdit;
         //Button boostedFollowersBtn;
@@ -492,7 +492,7 @@ public class ProfileRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             noOfFollowingll = v.findViewById(R.id.no_of_following_pfHeader_ll);
             otherUserProfileLl = v.findViewById(R.id.profile_rv_header_other_user_profile_ll);
 
-            sendMessageBtn = v.findViewById(R.id.profile_rv_header_send_message);
+            //sendMessageBtn = v.findViewById(R.id.profile_rv_header_send_message);
             name = v.findViewById(R.id.pf_name);
             edit = v.findViewById(R.id.profile_activityEditPfHeader);
             backActvityIcon = v.findViewById(R.id.backActivity_pf);

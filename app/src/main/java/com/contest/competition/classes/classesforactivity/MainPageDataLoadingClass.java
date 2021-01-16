@@ -40,6 +40,8 @@ public class MainPageDataLoadingClass {
 
 
 
+
+
     public void setArrayHolder(ArrayHolder arrayHolder){
         mArrayHolder = arrayHolder;
     }
@@ -151,13 +153,14 @@ public class MainPageDataLoadingClass {
             public void onEnd(PostData data) {
                 //end reached mean no further data is found
 
-                if(mArrayHolder.getHomePostdata().size() > 0) {
+                Log.e("data", "onEnd: End Reached " );
+               // if(mArrayHolder.getHomePostdata().size() > 0) {
                     PostData postData = mArrayHolder.getHomePostdata().get(mArrayHolder.getHomePostdata().size()-1);
                     if (!(postData instanceof SimpleTvData))
                         mArrayHolder.getHomePostdata().add(data);
-                }else{
-                    mArrayHolder.getHomePostdata().add(data);
-                }
+//                }else{
+//                    mArrayHolder.getHomePostdata().add(data);
+//                }
 
             }
 
@@ -228,6 +231,7 @@ public class MainPageDataLoadingClass {
 
             @Override
             public void loadingMore(int position) {
+                Log.e("loadingMOre", "loadingMore: Loading more " );
                 // if(containOnlyHomeSimplePostId.isEmpty()) {
                 //       Toaster.setToaster(getBaseContext(),"loading more");
                 // if (containOnlyHomeContestId.get(containOnlyHomeContestId.size() - 1) > -1 && containOnlyHomeSimplePostId.get(containOnlyHomeSimplePostId.size() - 1) > -1)

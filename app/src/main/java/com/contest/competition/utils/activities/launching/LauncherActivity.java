@@ -96,8 +96,8 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     private void multiplePermission(){
-        Permissions.check(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE},
+        Permissions.check(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE},
                 "Read And write permission required", new Permissions.Options()
                         .setSettingsDialogTitle("Warning!").setRationaleDialogTitle("Info"),
                 new PermissionHandler() {

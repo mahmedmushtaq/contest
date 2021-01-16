@@ -57,10 +57,10 @@ public abstract  class BaseActivity extends AppCompatActivity {
     protected static final int CONNECTED_WIFI = 1;
     protected static final int DISCONNECTED_WIFI = 0;
     private int HOME = 0;
-    private int TRENDING = 1;
-    private int SEARCH = 2;
-    private int NOTIFICATION = 3;
-    private int PROFILE = 4;
+    private int TRENDING = 4;
+    private int SEARCH = 1;
+    private int NOTIFICATION = 2;
+    private int PROFILE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,17 +155,17 @@ public abstract  class BaseActivity extends AppCompatActivity {
     private void setNavigation(){
         // Create items
         AHBottomNavigationItem item1 = new AHBottomNavigationItem("Home", R.drawable.home,  R.color.white);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem("Trending", R.drawable.trending_up,  R.color.white);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem("Search", R.drawable.search, R.color.white);
-        AHBottomNavigationItem item4 = new AHBottomNavigationItem("Notifications", R.drawable.alert,  R.color.white);
-        AHBottomNavigationItem item5 = new AHBottomNavigationItem("Profile", R.drawable.profile_icon,  R.color.white);
+       // AHBottomNavigationItem item2 = new AHBottomNavigationItem("Trending", R.drawable.trending_up,  R.color.white);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem("Search", R.drawable.search, R.color.white);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem("Notifications", R.drawable.alert,  R.color.white);
+        AHBottomNavigationItem item4 = new AHBottomNavigationItem("Profile", R.drawable.profile_icon,  R.color.white);
 
         // Add items
         mNavigation.addItem(item1);
+       // mNavigation.addItem(item2);
         mNavigation.addItem(item2);
         mNavigation.addItem(item3);
         mNavigation.addItem(item4);
-        mNavigation.addItem(item5);
 
         mNavigation.setAccentColor(Color.parseColor("#f2f4f5"));
         mNavigation.setInactiveColor(Color.parseColor("#ffffff"));
@@ -214,18 +214,18 @@ public abstract  class BaseActivity extends AppCompatActivity {
     private void setCurrentItem(){
 
         if(BaseActivity.this instanceof NotificationActivity){
-            mNavigation.setCurrentItem(3);
+            mNavigation.setCurrentItem(NOTIFICATION);
         }
         if(BaseActivity.this instanceof HomeActivity){
-            mNavigation.setCurrentItem(0);
+            mNavigation.setCurrentItem(HOME);
         }
         if(BaseActivity.this instanceof ProfileActivity){
-            mNavigation.setCurrentItem(4);
+            mNavigation.setCurrentItem(PROFILE);
         }
         if(BaseActivity.this instanceof SearchActivity){
-            mNavigation.setCurrentItem(2);
+            mNavigation.setCurrentItem(SEARCH);
         } if(BaseActivity.this instanceof TrendingActivity){
-            mNavigation.setCurrentItem(1);
+            mNavigation.setCurrentItem(TRENDING);
         }
 
 

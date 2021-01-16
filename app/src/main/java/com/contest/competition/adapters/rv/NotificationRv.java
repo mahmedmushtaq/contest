@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,8 +63,12 @@ public class NotificationRv extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if(position < mArrayHolder.getNotificationData().size()) {
 
             NotificationRvHolder holder = (NotificationRvHolder) holdr;
+            Log.d("notificationRv", "onBindViewHolder: "+mArrayHolder.getNotificationData().size());
             NotificationData data = mArrayHolder.getNotificationData().get(position);
+
             NotificationRvData rvData = new NotificationRvData();
+            rvData.setNotificationData(data);
+            rvData.setListener(mListener);
             rvData.setArrayHolder(mArrayHolder);
             rvData.setContext(mContext);
             rvData.setHolder(holder);

@@ -90,10 +90,10 @@ public class LoginProcessRequest {
                                     int id = object.getInt("id");
                                     String profilePath = object.getString("profile_pic");
                                     String openFirePassword = object.getString("openfire_password");
-                                    String subscriptionTopic = object.getString("subscription_topic");
+//                                    String subscriptionTopic = object.getString("subscription_topic");
 
 
-                                    LoginSharedPreferenceSetter.setLoginSharedPreference(context,username,name,id,profilePath,openFirePassword,email,password,subscriptionTopic,mRememberMe);
+                                    LoginSharedPreferenceSetter.setLoginSharedPreference(context,username,name,id,profilePath,openFirePassword,email,password,"",mRememberMe);
 
                                     Intent intent = new Intent(context, HomeActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -84,12 +84,12 @@ public class CreateUserByGoogleSignIn  {
                                 final int id = object.getInt("id");
                                 String profilePic = object.getString("profile_pic");
                                 String openFirePassword = object.getString("openfire_password");
-                                String subscriptionTopic = object.getString("subscription_topic");
+                              //  String subscriptionTopic = object.getString("subscription_topic");
 
 
 
 
-                                LoginSharedPreferenceSetter.setLoginSharedPreference(context,username,fullName,id,profilePic,openFirePassword,email,password,subscriptionTopic,false);
+                                LoginSharedPreferenceSetter.setLoginSharedPreference(context,username,fullName,id,profilePic,openFirePassword,email,password,"",false);
 
                                 ((Activity)context).runOnUiThread(new Runnable() {
                                     @Override

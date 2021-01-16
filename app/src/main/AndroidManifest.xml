@@ -22,6 +22,7 @@
         android:supportsRtl="true"
         android:testOnly="false"
         android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
         <activity android:name=".utils.activities.accountsettingsactivities.UpdateNameOnly"></activity>
         <activity android:name=".utils.activities.accountsettingsactivities.UpdateEmailOnly" />

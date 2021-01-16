@@ -15,7 +15,7 @@ public class ContestDataRvHolder extends RecyclerView.ViewHolder {
     public CircularImageView creatorProfile;
     public TextView creatorName,dateTime,contestTillTime,leftSideName,rightSideName,leftSidePicVotes,rightSidePicVotes,totalVotes,totalComments,totalSeen;
     public ProgressBar leftSidePb,rightSidePb;
-    public ImageView leftUserWin,rightUserWin,equalVotes,leftSidePic,rightSidePic,doubleTapLeftPic,doubleTapRightPic,shareContest;
+    public ImageView leftUserWin,rightUserWin,equalVotes,leftSidePic,rightSidePic,doubleTapLeftPic,doubleTapRightPic;//shareContest
     public  ImageView voteBtn,commentBtn;
     public Button contestFeatures;
     public LinearLayout contest_postTotalLl;
@@ -50,7 +50,7 @@ public class ContestDataRvHolder extends RecyclerView.ViewHolder {
 
         doubleTapLeftPic = v.findViewById(R.id.contest_leftSideDoubleTapStar);
         doubleTapRightPic = v.findViewById(R.id.contest_rightSideDoubleTapStar);
-        shareContest = v.findViewById(R.id.contest_share);
+//        shareContest = v.findViewById(R.id.contest_share);
 
 
 

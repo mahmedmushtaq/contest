@@ -90,7 +90,7 @@ public class ProfileInfoProcess {
             double noOfCredits = object.getDouble("num_credits");
             double noOfContestWin = object.getDouble("num_contest_win");
             double noOfContestLose = object.getDouble("num_contest_lose");
-            String subscriptionTopic = object.getString("subscription_topic");
+//            String subscriptionTopic = object.getString("subscription_topic");
 
             if(userFollow.length() == 0){
                 userFollowing = null;
@@ -98,7 +98,7 @@ public class ProfileInfoProcess {
 
 
 
-            ProfileHeaderData data = new ProfileHeaderData(profilePic,username,name,userFollowing,noOfFollowingUser,noOfFollowerUser,noOfContests,noOfCredits,noOfContestWin,noOfContestLose,subscriptionTopic);
+            ProfileHeaderData data = new ProfileHeaderData(profilePic,username,name,userFollowing,noOfFollowingUser,noOfFollowerUser,noOfContests,noOfCredits,noOfContestWin,noOfContestLose,"");
 
 
             if(mProfileInfoListener != null)

@@ -94,7 +94,7 @@ public class RetrieveAllPosts {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                final String body = response.body().string();
-           // Log.e("posts", "onResponse: body data of posts = "+body );
+              Log.e("posts", "onResponse: all Posts ====  = "+body );
 
                         try {
                             JSONObject object = new JSONObject(body);
@@ -116,7 +116,10 @@ public class RetrieveAllPosts {
                                     }
                                 }
 
+
+
                                if(mDataListener != null){
+
                                     mDataListener.boostedId(boostedIds);
                                     mDataListener.onRetrieveOnlyIds(contestIds,postIds);
                                     mDataListener.updateView();
@@ -133,6 +136,7 @@ public class RetrieveAllPosts {
                                 SimpleTvData data = new SimpleTvData();
                                 data.setSimpleTv(reason);
                                 if(mDataListener != null) {
+
                                     mDataListener.onEnd(data);
                                     //mDataListener.onEnd(data);
                                     mDataListener.updateView();

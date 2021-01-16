@@ -272,23 +272,23 @@
             />
 
 
-        <Button
-            android:id="@+id/profile_rv_header_send_message"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="@string/send"
-            android:stateListAnimator="@null"
-            android:elevation="1dp"
-            android:background="@drawable/followed_btn"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
+<!--        <Button-->
+<!--            android:id="@+id/profile_rv_header_send_message"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:text="@string/send"-->
+<!--            android:stateListAnimator="@null"-->
+<!--            android:elevation="1dp"-->
+<!--            android:background="@drawable/followed_btn"-->
+<!--            android:paddingLeft="40dp"-->
+<!--            android:paddingRight="40dp"-->
 
-            android:layout_marginLeft="5dp"
-            android:gravity="center_vertical"
-            android:layout_gravity="center_vertical|center_horizontal"
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:layout_gravity="center_vertical|center_horizontal"-->
 
 
-            />
+<!--            />-->
 
     </LinearLayout>
 
