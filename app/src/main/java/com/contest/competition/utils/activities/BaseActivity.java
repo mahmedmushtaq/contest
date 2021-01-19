@@ -56,11 +56,11 @@ public abstract  class BaseActivity extends AppCompatActivity {
 
     protected static final int CONNECTED_WIFI = 1;
     protected static final int DISCONNECTED_WIFI = 0;
-    private int HOME = 0;
-    private int TRENDING = 4;
-    private int SEARCH = 1;
-    private int NOTIFICATION = 2;
-    private int PROFILE = 3;
+    protected int HOME = 0;
+    protected int TRENDING = 4;
+    protected int SEARCH = 1;
+    protected int NOTIFICATION = 2;
+    protected int PROFILE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,6 +210,10 @@ public abstract  class BaseActivity extends AppCompatActivity {
         if(mNoOfNotifications.getNoOfNotifications() > 0)
             setNotifications(mNoOfNotifications.getNoOfNotifications());
     }
+
+//    protected void setCurrentItem(int itemNo){
+//        mNavigation.setCurrentItem(itemNo);
+//    }
 
     private void setCurrentItem(){
 

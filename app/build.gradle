@@ -76,6 +76,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+   
 
     implementation 'io.github.lizhangqu:coreprogress:1.0.2'
 //for progressbar uploading file to server
@@ -88,6 +89,8 @@ dependencies {
     implementation 'com.github.medyo:fancybuttons:1.9.1'
     implementation 'com.github.skydoves:powermenu:2.0.4'
     implementation 'com.github.mohammadatif:Animatoo:master'
+
+
 
 
 //    compile("org.igniterealtime.smack:smack-android:4.2.3") {
@@ -110,7 +113,8 @@ dependencies {
     implementation 'androidx.browser:browser:1.0.0'
     implementation 'androidx.media:media:1.1.0'
 
-    implementation 'com.facebook.fresco:fresco:1.10.0'
+   // implementation 'com.facebook.fresco:fresco:1.10.0'
+    implementation 'com.facebook.fresco:fresco:2.3.0'
    // implementation 'com.facebook.fresco:fresco:2.0.0' {
      //   exclude group: 'com.facebook.soloader', module: 'soloader'
     //}

@@ -536,7 +536,7 @@ public class ProfileActivityClass {
 
 
     public void retrieveAllPosts(String profileUsername,String lastPostId,String lastContestId){
-        RetrieveAllPosts.retrievePost(mSharedPrefer.getUsername(),profileUsername,lastPostId,lastContestId,"","","");
+        RetrieveAllPosts.retrievePost(mContext,mSharedPrefer.getUsername(),profileUsername,lastPostId,lastContestId,"","","");
         RetrieveAllPosts.setDataListener(new RetrieveAllPosts.RetrieveAllPostsDataListener() {
             @Override
             public void onRetrieveSinglePostData(PostData data, int postId) {

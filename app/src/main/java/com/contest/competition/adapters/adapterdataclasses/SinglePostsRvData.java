@@ -1,8 +1,13 @@
 package com.contest.competition.adapters.adapterdataclasses;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import android.util.Log;
 import android.view.GestureDetector;
@@ -11,6 +16,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.contest.competition.R;
 import com.contest.competition.adapters.holders.SinglePostRvHolder;
 import com.contest.competition.classes.KeyStore;
@@ -20,9 +31,17 @@ import com.contest.competition.classes.models.PostData;
 import com.contest.competition.classes.models.SimplePostData;
 import com.contest.competition.classes.webfiles.Addresses;
 import com.contest.competition.storage.sharedpreferences.LoginSharedPrefer;
+import com.contest.competition.utils.views.ImageLoadProgressBar;
 import com.contest.competition.utils.views.Menu;
 import com.contest.competition.utils.views.PostView;
 import com.contest.competition.utils.views.Toaster;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.drawable.ProgressBarDrawable;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.skydoves.powermenu.PowerMenuItem;
 
 import java.util.ArrayList;
@@ -92,7 +111,7 @@ public class SinglePostsRvData {
     private static void showSimplePostRecyclerView(PostData postData,final SinglePostRvHolder body,final Context mContext,final HomeRvListener mHomeRvListener,final int position){
         final SimplePostData data = (SimplePostData) postData;
 
-
+        if(data == null) return;
 
         if(data.getPostedText().isEmpty()){
             body.postedText.setVisibility(View.GONE);
@@ -103,12 +122,81 @@ public class SinglePostsRvData {
 
         if(data.getPostedImage().isEmpty()){
             body.postedImage.setVisibility(View.GONE);
+
         }else{
 
              body.postedImage.setVisibility(View.VISIBLE);
              Uri uri = Uri.parse(Addresses.getWebAddress()+data.getPostedImage());
-             body.postedImage.setImageURI(uri);
-            //Glide.with(mContext).load(uri).into(body.postedImage);
+           // body.postedImage.setImageURI(uri);
+         //   Glide.with(mContext).load(uri).into(body.postedImage);
+
+            RequestOptions options = new RequestOptions()
+                    .centerCrop()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL);
+
+//            body.postedImage.setController(Fresco.newDraweeControllerBuilder()
+//                    .setImageRequest(
+//                            ImageRequestBuilder.newBuilderWithSource(
+//                                    Uri.parse(Addresses.getWebAddress()+data.getPostedImage()))
+//                                    .setProgressiveRenderingEnabled(true)
+//                                    .build())
+//                    .setOldController(body.postedImage.getController())
+//                    .build());
+
+
+            GenericDraweeHierarchy hierarchy =
+                    GenericDraweeHierarchyBuilder.newInstance(mContext.getResources())
+                             .setProgressBarImage(new ImageLoadProgressBar(ContextCompat.getColor(mContext,R.color.colorAccent)))
+                            .build();
+            body.postedImage.setHierarchy(hierarchy);
+            body.postedImage.setImageURI(uri);
+
+
+
+//            GlideImageLoader loader = new GlideImageLoader(body.postedImage, body.singlePost_progressBar);
+//            loader.setThumbNail(0.5f);
+//
+//            loader.load(Addresses.getWebAddress()+data.getPostedImage(),options);
+
+
+//                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                    .signature(ObjectKey(signature))
+//
+//            Glide.with(mContext).load(uri)//.apply(new RequestOptions().centerCrop())
+//                   .thumbnail(0.01f)
+//                    .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).listener(new RequestListener<Drawable>() {
+//                @Override
+//                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+//                    body.singlePost_progressBar.setVisibility(View.GONE);
+//                    return false;
+//                }
+//
+//                @Override
+//                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+//                    new android.os.Handler().postDelayed(
+//                            new Runnable() {
+//                                public void run() {
+//                                     body.singlePost_progressBar.setVisibility(View.GONE);
+//                                }
+//                            },
+//                            1000);
+//
+//                    return false;
+//                }
+//            }).into(body.postedImage);
+
+
+//            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+//            Bitmap newBitmap = new Bitmap();
+//
+////save scaled down image to cache dir
+//            newBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+//
+//            File imageFile = new File(filePath);
+//
+//// write the bytes in file
+//            FileOutputStream fo = new FileOutputStream(imageFile);
+//            fo.write(bytes.toByteArray());
 
         }
 

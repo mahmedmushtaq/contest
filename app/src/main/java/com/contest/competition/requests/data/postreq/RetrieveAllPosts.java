@@ -1,5 +1,8 @@
 package com.contest.competition.requests.data.postreq;
 
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
 import android.util.JsonReader;
 import android.util.Log;
 
@@ -9,6 +12,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -18,6 +22,11 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.contest.competition.classes.Validator;
 import com.contest.competition.classes.classesforactivity.MainPageDataLoadingClass;
 import com.contest.competition.classes.models.ContestData;
@@ -27,6 +36,7 @@ import com.contest.competition.classes.models.SimpleTvData;
 import com.contest.competition.classes.webfiles.Addresses;
 import com.contest.competition.classes.webfiles.SimplePostFiles;
 import com.contest.competition.classes.webfiles.TrendingFiles;
+
 import com.contest.competition.utils.views.PostView;
 
 /**
@@ -40,6 +50,7 @@ public class RetrieveAllPosts {
     private static ArrayList<Integer> postIds = new ArrayList<>();
     private static ArrayList<Integer> boostedIds = new ArrayList<>();
     private static int checkPost;
+
 
 
 
@@ -64,7 +75,7 @@ public class RetrieveAllPosts {
         mDataListener = listener;
     }
 
-    public static void retrievePost( final String loginUsername, final String profileUsername, final String lastPostId, String lastContestId, final String firstPostId, final String firstContestId,final String lastBoostedId){
+    public static void retrievePost(final Context context, final String loginUsername, final String profileUsername, final String lastPostId, String lastContestId, final String firstPostId, final String firstContestId, final String lastBoostedId){
         contestIds.clear();
         postIds.clear();
         boostedIds.clear();
@@ -110,9 +121,9 @@ public class RetrieveAllPosts {
                                 for(int i = 0; i < checkTypeArray.length(); i++){
                                     String check = checkTypeArray.getString(i);
                                     if(check.equals("contest")){
-                                        putContestData(object,i);
+                                        putContestData(object,i,context);
                                     }else{
-                                        putPostData(object,i);
+                                        putPostData(object,i,context);
                                     }
                                 }
 
@@ -153,7 +164,7 @@ public class RetrieveAllPosts {
 
     }
 
-    private static void putContestData(JSONObject object,int position) throws JSONException{
+    private static void putContestData(JSONObject object, int position, final Context context) throws JSONException{
         String leftSidePic = object.getString("left_side_pic");
         String rightSidePic = object.getString("right_side_pic");
         String leftSideName = object.getString("left_side_name");
@@ -238,6 +249,8 @@ public class RetrieveAllPosts {
 
         }
 
+       // loadImageByGlide(context,data.getLeftSideImage());
+        //loadImageByGlide(context,data.getRightSideImage());
 
         if(mDataListener != null)
             mDataListener.onRetrieveContestData(data,postIdsArray.getInt(position),contestIdsArray.getInt(position));
@@ -251,7 +264,7 @@ public class RetrieveAllPosts {
 
 
     }
-    private static void putPostData(JSONObject object,int position)throws JSONException{
+    private static void putPostData(JSONObject object, int position, final Context context)throws JSONException{
         String postedBy = object.getString("posted_by");
         String singlePostedText = object.getString("single_posted_text");
         String singlePostedImage = object.getString("single_posted_image");
@@ -301,6 +314,10 @@ public class RetrieveAllPosts {
 
         }
 
+        // load the images into the cache
+
+      // loadImageByGlide(context,data.getPostedImage());
+
 
         //localArrayList.add(data);
         try {
@@ -324,5 +341,32 @@ public class RetrieveAllPosts {
 
 
 
+    }
+
+    private  static void loadImageByGlide(final Context context, String url){
+        final Uri uri = Uri.parse(Addresses.getWebAddress()+url);
+        try {
+            Glide.with(context)
+                    .downloadOnly()
+                    .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.DATA)) // Cache resource before it's decoded
+                    .load(uri)
+                    .submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                    .get(); // Called on background thread
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//        ((Activity)context).runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Log.e("loadImage", "run: load image " );
+//                Glide.with(context)
+//                        .load(uri)
+//                        .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL))
+//                        .preload();
+//            }
+//        });
     }
 }

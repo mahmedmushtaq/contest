@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.contest.competition.R;
@@ -23,9 +24,10 @@ public class SinglePostRvHolder extends RecyclerView.ViewHolder {
     public ImageView  voteBtn,commentBtn;
     public CircularImageView profile;
     public SimpleDraweeView postedImage;
-    public ImageView   doubleClickPostedVote;
+    public ImageView   doubleClickPostedVote;//,postedImage;
     public Button features;
     public LinearLayout totalLl;
+    public ProgressBar singlePost_progressBar;
 
 
     public SinglePostRvHolder(@NonNull View v) {
@@ -42,13 +44,19 @@ public class SinglePostRvHolder extends RecyclerView.ViewHolder {
         voteBtn = v.findViewById(R.id.single_postVoteIv);
         features = v.findViewById(R.id.single_postFeaturesBtn);
         totalLl = v.findViewById(R.id.single_postTotalLl);
+       // singlePost_progressBar = v.findViewById(R.id.singlePost_progressBar);
 
         doubleClickPostedVote = v.findViewById(R.id.double_clickPostedVote);
 
         SetFonts.setMontserratLight(v.getContext(),postedText);
 
 
+
+
+
         doubleClickPostedVote.setVisibility(View.GONE);
+
+
 
     }
 }

@@ -10,7 +10,8 @@ public class Addresses {
       // return "http://192.168.43.116/contest";
        //  return "http://192.168.43.116/contest";
        // return "http://10.7.29.202/contest";
-       return "http://contestapplication.net/actuallyfilesarehere67324732546/contest";
+     //  return "http://contestapplication.net/actuallyfilesarehere67324732546/contest";
+       return "https://newdigitalwebsite.ml/actuallyfilesarehere67324732546/contest";
     }
 
 

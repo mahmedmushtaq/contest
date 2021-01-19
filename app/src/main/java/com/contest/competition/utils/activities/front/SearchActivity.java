@@ -284,6 +284,7 @@ public class SearchActivity extends BaseActivity {
 //
 //                startActivity(intent);
                 VisitProfile.with(SearchActivity.this).visitUserProfile(data.getUsername());
+             //   setCurrentItem(PROFILE);
             }
 
 

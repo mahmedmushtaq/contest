@@ -66,6 +66,8 @@ public class HomeRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext();
 
+        if( parent == null )
+        Log.e("null", "onCreateViewHolder: null object parent null ");
 
         if (viewType == PostView.SHOW_CONTEST) {
             //return new ContestDataRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.home_rv_contest_layout, parent, false));
@@ -78,8 +80,8 @@ public class HomeRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         }
 
-        return null;
-      //  return  new SimpleTvRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_rv_layout,parent,false));
+        return  new SimpleTvRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_rv_layout,parent,false));
+        //  return  new SimpleTvRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_rv_layout,parent,false));
 
     }
 
@@ -147,7 +149,9 @@ public class HomeRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         } else if(dataChecker instanceof SimpleTvData){
             return PostView.SHOW_SIMPLE_TV;
         }
-        return super.getItemViewType(position);
+
+        Log.e("homeRv", "getItemViewType: nulll ---------------------------------" );
+        return PostView.NULL_VIEW;
     }
 
     private class HomeProgressBar extends RecyclerView.ViewHolder {

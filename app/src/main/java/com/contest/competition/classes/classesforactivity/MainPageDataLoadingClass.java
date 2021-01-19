@@ -23,6 +23,8 @@ import com.contest.competition.utils.views.Toaster;
 
 import java.util.ArrayList;
 
+import okhttp3.OkHttpClient;
+
 public class MainPageDataLoadingClass {
     private ArrayList<Integer> containOnlyContestId = new ArrayList<>();
     private ArrayList<Integer> containOnlySimplePostId = new ArrayList<>();
@@ -39,45 +41,42 @@ public class MainPageDataLoadingClass {
     private int checkPost;
 
 
-
-
-
-    public void setArrayHolder(ArrayHolder arrayHolder){
+    public void setArrayHolder(ArrayHolder arrayHolder) {
         mArrayHolder = arrayHolder;
     }
 
-    public void setPb(ProgressBar pb){
+    public void setPb(ProgressBar pb) {
         this.pb = pb;
     }
 
-    public void setCheckPost(int checkPost){
+    public void setCheckPost(int checkPost) {
         this.checkPost = checkPost;
     }
 
-    public void setSwipe(SwipeRefreshLayout sw){
+    public void setSwipe(SwipeRefreshLayout sw) {
         swipe = sw;
     }
 
-    public void setHomeRv(HomeRv rv){
+    public void setHomeRv(HomeRv rv) {
         this.rv = rv;
     }
 
-    public void setRecyclerView(RecyclerView recyclerView){
+    public void setRecyclerView(RecyclerView recyclerView) {
         mRecyclerView = recyclerView;
     }
 
-    public void setContext(Context mContext){
+    public void setContext(Context mContext) {
         this.context = mContext;
     }
 
-    public void setLoginSharedPrefer(LoginSharedPrefer loginSharedPrefer){
+    public void setLoginSharedPrefer(LoginSharedPrefer loginSharedPrefer) {
         mPrefer = loginSharedPrefer;
     }
 
 
-    public void clearArray(){
+    public void clearArray() {
 
-        if(mArrayHolder != null) {
+        if (mArrayHolder != null) {
             mArrayHolder.getHomePostdata().clear();
             containOnlyContestId.clear();
             containOnlySimplePostId.clear();
@@ -86,49 +85,51 @@ public class MainPageDataLoadingClass {
 
     }
 
-    public void onSwipeLayout(){
+    public void onSwipeLayout() {
         clearArray();
-        retrieveAllPosts("","","","","","");
+        retrieveAllPosts("", "", "", "", "", "");
 
     }
 
-    public void retrieveAllPosts(String profileUsername, String lastPostId, String lastContestId, final String firstPostId, final String firstContestId,String lastBoostedId){
+    public void retrieveAllPosts(String profileUsername, String lastPostId, String lastContestId, final String firstPostId, final String firstContestId, String lastBoostedId) {
 
 
         try {
 
-            RetrieveAllPosts.retrievePost(mPrefer.getUsername(), profileUsername, lastPostId, lastContestId, firstPostId, firstContestId, lastBoostedId);
-        }catch (IndexOutOfBoundsException e){
-            Toaster.setToaster(context,"Please refresh a page");
+            RetrieveAllPosts.retrievePost(context, mPrefer.getUsername(), profileUsername, lastPostId, lastContestId, firstPostId, firstContestId, lastBoostedId);
+        } catch (IndexOutOfBoundsException e) {
+            Toaster.setToaster(context, "Please refresh a page");
         }
 
 
         RetrieveAllPosts.setDataListener(new RetrieveAllPosts.RetrieveAllPostsDataListener() {
 
             @Override
-            public void onRetrieveSinglePostData(PostData data,int id) {
+            public void onRetrieveSinglePostData(PostData data, int id) {
 
 
-
-                if(!simplePostIdsLl.contains(id+"")) {
-                    simplePostIdsLl += ""+id;
-                    if(firstContestId.isEmpty() && firstPostId.isEmpty()) {
-                        mArrayHolder.getHomePostdata().add(data);
-                    }else {
-                       mArrayHolder.getHomePostdata().add(0, data);
+                if (!simplePostIdsLl.contains(id + "")) {
+                    simplePostIdsLl += "" + id;
+                    if (firstContestId.isEmpty() && firstPostId.isEmpty()) {
+                        try {
+                            mArrayHolder.getHomePostdata().add(data);
+                        } catch (ArrayIndexOutOfBoundsException e) {
+                            Log.e("MainPageData", "onRetrieveSinglePostData: MAinPageDataLoadingClass ArrayIndexOutOfBoundException = ");
+                        }
+                    } else {
+                        mArrayHolder.getHomePostdata().add(0, data);
                     }
 
-                }else{
-                   // Log.e("HomeActivity", "onRetrieveSinglePostData: already contain data" );
+                } else {
+                    // Log.e("HomeActivity", "onRetrieveSinglePostData: already contain data" );
                 }
-
 
 
             }
 
             @Override
             public void hidePb() {
-                ((Activity)context).runOnUiThread(new Runnable() {
+                ((Activity) context).runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         swipe.setRefreshing(false);
@@ -139,7 +140,7 @@ public class MainPageDataLoadingClass {
 
             @Override
             public void updateView() {
-                ((Activity)context).runOnUiThread(new Runnable() {
+                ((Activity) context).runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         rv.setArrayHolder(mArrayHolder);
@@ -153,11 +154,11 @@ public class MainPageDataLoadingClass {
             public void onEnd(PostData data) {
                 //end reached mean no further data is found
 
-                Log.e("data", "onEnd: End Reached " );
-               // if(mArrayHolder.getHomePostdata().size() > 0) {
-                    PostData postData = mArrayHolder.getHomePostdata().get(mArrayHolder.getHomePostdata().size()-1);
-                    if (!(postData instanceof SimpleTvData))
-                        mArrayHolder.getHomePostdata().add(data);
+                Log.e("data", "onEnd: End Reached ");
+                // if(mArrayHolder.getHomePostdata().size() > 0) {
+                PostData postData = mArrayHolder.getHomePostdata().get(mArrayHolder.getHomePostdata().size() - 1);
+                if (!(postData instanceof SimpleTvData))
+                    mArrayHolder.getHomePostdata().add(data);
 //                }else{
 //                    mArrayHolder.getHomePostdata().add(data);
 //                }
@@ -166,17 +167,14 @@ public class MainPageDataLoadingClass {
 
             @Override
             public void onRetrieveOnlyIds(ArrayList<Integer> contestIds, ArrayList<Integer> postIds) {
-                if(firstPostId.isEmpty() && firstContestId.isEmpty()){
+                if (firstPostId.isEmpty() && firstContestId.isEmpty()) {
                     containOnlyContestId.addAll(contestIds);
                     containOnlySimplePostId.addAll(postIds);
-                }else{
-                    containOnlyContestId.addAll(0,contestIds);
-                    containOnlySimplePostId.addAll(0,postIds);
+                } else {
+                    containOnlyContestId.addAll(0, contestIds);
+                    containOnlySimplePostId.addAll(0, postIds);
                 }
             }
-
-
-
 
 
             @Override
@@ -185,25 +183,30 @@ public class MainPageDataLoadingClass {
             }
 
             @Override
-            public void onRetrieveContestData(PostData data,int postId,int contestId) {
+            public void onRetrieveContestData(final PostData data, int postId, int contestId) {
 
 
-                if(!simplePostIdsLl.contains(postId+"")) {
-                    simplePostIdsLl += ""+postId;
+                if (!simplePostIdsLl.contains(postId + "")) {
+                    simplePostIdsLl += "" + postId;
 
-                    if(firstContestId.isEmpty() && firstPostId.isEmpty()) {
-                        mArrayHolder.getHomePostdata().add(data);
-                    }else {
+                    if (firstContestId.isEmpty() && firstPostId.isEmpty()) {
+                        try{
+                            mArrayHolder.getHomePostdata().add(data);
+                        }catch(Exception e){
+                            Log.e("exceptionContestData", "onRetrieveContestData: Exception = "+e.getMessage() );
+                        }
+
+
+
+                    } else {
 
                         mArrayHolder.getHomePostdata().add(0, data);
                     }
 
 
-
-                }else{
-                    Log.e("HomeActivity", "onRetrieveSinglePostData: already contain data" );
+                } else {
+                    Log.e("HomeActivity", "onRetrieveSinglePostData: already contain data");
                 }
-
 
 
             }
@@ -218,26 +221,26 @@ public class MainPageDataLoadingClass {
 
     }
 
-    public void rvListener(){
-        HomeRvImplementation implementation = new HomeRvImplementation(context,mPrefer.getUsername());
+    public void rvListener() {
+        HomeRvImplementation implementation = new HomeRvImplementation(context, mPrefer.getUsername());
         implementation.setListener(new HomeRvImplementation.SuccessHomeRvImplementationListener() {
             @Override
             public void Successful(int position) {
 
                 rv.setArrayHolder(mArrayHolder);
-                rv.notifyItemChanged(position,new HomeRv());
+                rv.notifyItemChanged(position, new HomeRv());
 
             }
 
             @Override
             public void loadingMore(int position) {
-                Log.e("loadingMOre", "loadingMore: Loading more " );
+                Log.e("loadingMOre", "loadingMore: Loading more ");
                 // if(containOnlyHomeSimplePostId.isEmpty()) {
                 //       Toaster.setToaster(getBaseContext(),"loading more");
                 // if (containOnlyHomeContestId.get(containOnlyHomeContestId.size() - 1) > -1 && containOnlyHomeSimplePostId.get(containOnlyHomeSimplePostId.size() - 1) > -1)
-                PostData data = mArrayHolder.getHomePostdata().get(mArrayHolder.getHomePostdata().size()-1);
-                if(!(data instanceof SimpleTvData)) {
-                    if(data instanceof SimplePostData) {
+                PostData data = mArrayHolder.getHomePostdata().get(mArrayHolder.getHomePostdata().size() - 1);
+                if (!(data instanceof SimpleTvData)) {
+                    if (data instanceof SimplePostData) {
                         SimplePostData simplePostData = (SimplePostData) data;
                         if (simplePostData.getIsPostBoosted() != PostView.IS_POST_BOOSTED) {
                             //mean when last post is boosted then not load more posts .and its not possible
@@ -245,7 +248,7 @@ public class MainPageDataLoadingClass {
 
                             setLoadMore();
                         }
-                    }else{
+                    } else {
                         setLoadMore();
                     }
 
@@ -253,9 +256,7 @@ public class MainPageDataLoadingClass {
                 }
 
 
-
             }
-
 
 
             @Override
@@ -271,46 +272,50 @@ public class MainPageDataLoadingClass {
 
     public void setLoadMore() {
 
-        if(containOnlySimplePostId != null && containOnlyContestId  != null && !containOnlySimplePostId.isEmpty() && !containOnlyContestId.isEmpty()  ) {
+        if (containOnlySimplePostId != null && containOnlyContestId != null && !containOnlySimplePostId.isEmpty() && !containOnlyContestId.isEmpty()) {
 
-            if(boostedIds.isEmpty()) {
+            if (boostedIds.isEmpty()) {
                 //we need last id because we retrieve data descending order so last id needed to retrieve old data
 
                 try {
+
+
                     int lastPostId = containOnlySimplePostId.get(containOnlySimplePostId.size() - 1);
                     int lastContestId = containOnlyContestId.get(containOnlyContestId.size() - 1);
                     retrieveAllPosts("", lastPostId + "", lastContestId + "", "", "", "");
-                }catch (NullPointerException e){
-                    Log.e("null pointer exception", "setLoadMore: Null pointer exception " );
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    Log.e("null pointer exception", "setLoadMore: Index pointer exception ");
+                } catch (NullPointerException e) {
+                    Log.e("null pointer exception", "setLoadMore: Null pointer exception ");
                 }
 
-            }else{
+            } else {
 
                 int lastPostId = containOnlySimplePostId.get(containOnlySimplePostId.size() - 1);
                 int lastContestId = containOnlyContestId.get(containOnlyContestId.size() - 1);
-                int lastBoostId = boostedIds.get(boostedIds.size()-1);
-                retrieveAllPosts("", lastPostId + "", lastContestId + "", "", "",lastBoostId+"");
+                int lastBoostId = boostedIds.get(boostedIds.size() - 1);
+                retrieveAllPosts("", lastPostId + "", lastContestId + "", "", "", lastBoostId + "");
 
             }
-        }else if(!containOnlySimplePostId.isEmpty() && containOnlyContestId.isEmpty()){
-            if(boostedIds.isEmpty()) {
+        } else if (!containOnlySimplePostId.isEmpty() && containOnlyContestId.isEmpty()) {
+            if (boostedIds.isEmpty()) {
                 int lastPostId = containOnlySimplePostId.get(containOnlySimplePostId.size() - 1);
                 retrieveAllPosts("", lastPostId + "", "", "", "", "");
-            }else{
+            } else {
                 int lastPostId = containOnlySimplePostId.get(containOnlySimplePostId.size() - 1);
                 int lastBoostId = boostedIds.get(boostedIds.size() - 1);
-                retrieveAllPosts("", lastPostId + "", "", "", "", lastBoostId+"");
+                retrieveAllPosts("", lastPostId + "", "", "", "", lastBoostId + "");
 
             }
-        }else if(containOnlySimplePostId.isEmpty() && !containOnlyContestId.isEmpty()){
-            if(boostedIds.isEmpty()) {
+        } else if (containOnlySimplePostId.isEmpty() && !containOnlyContestId.isEmpty()) {
+            if (boostedIds.isEmpty()) {
 
                 int lastContestId = containOnlyContestId.get(containOnlyContestId.size() - 1);
                 retrieveAllPosts("", "", lastContestId + "", "", "", "");
-            }else{
+            } else {
                 int lastContestId = containOnlyContestId.get(containOnlyContestId.size() - 1);
                 int lastBoostId = boostedIds.get(boostedIds.size() - 1);
-                retrieveAllPosts("", "", lastContestId + "", "", "", ""+lastBoostId);
+                retrieveAllPosts("", "", lastContestId + "", "", "", "" + lastBoostId);
 
             }
         }

@@ -10,4 +10,5 @@ public class PostView {
     public static final int SHOW_SIMPLE_TV = 3;
     public static final int ALREADY_VOTE = 1;
     public static int IS_POST_BOOSTED = 1;
+    public static final int NULL_VIEW = -1;
 }

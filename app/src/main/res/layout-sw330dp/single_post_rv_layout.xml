@@ -3,6 +3,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
@@ -52,6 +53,7 @@
             android:textColor="@color/peter"
             android:stateListAnimator="@null"
             android:elevation="1dp"
+
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:textSize="12sp"
@@ -101,7 +103,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
+                fresco:placeholderImage="@drawable/loading"
                 android:adjustViewBounds="true"/>
+
+<!--            <ProgressBar-->
+<!--                android:id="@+id/singlePost_progressBar"-->
+<!--                style="?android:attr/progressBarStyleHorizontal"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                />-->
+
+<!--            <ProgressBar-->
+<!--                android:id="@+id/singlePost_progressBar"-->
+<!--                android:layout_width="20dp"-->
+<!--                android:backgroundTint="@color/colorAccent"-->
+<!--                android:layout_height="20dp"-->
+<!--                android:layout_gravity="center"/>-->
+<!--            <ImageView-->
+<!--                android:id="@+id/single_postPostedImage"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:minHeight="340dp"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                />-->
+
+
 
 
             <ImageView
