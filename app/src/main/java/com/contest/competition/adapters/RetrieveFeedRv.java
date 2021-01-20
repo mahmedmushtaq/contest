@@ -1,4 +1,4 @@
-package com.contest.competition.adapters.rv;
+package com.contest.competition.adapters;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
@@ -35,7 +35,7 @@ import com.contest.competition.R;
  * Created by M Ahmed Mushtaq on 7/6/2018.
  */
 
-public class HomeRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class RetrieveFeedRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     private int BODY = 1;
@@ -67,13 +67,13 @@ public class HomeRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         mContext = parent.getContext();
 
         if( parent == null )
-        Log.e("HomeRv", "onCreateViewHolder: null object parent null ");
+            Log.e("HomeRv", "onCreateViewHolder: null object parent null ");
 
         if (viewType == PostView.SHOW_CONTEST) {
             //return new ContestDataRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.home_rv_contest_layout, parent, false));
             return new ContestDataRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.contest_layout, parent, false));
         } else if (viewType == PostView.SHOW_SIMPLE_POST) {
-           // return new PostBodyRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.home_rv_post, parent, false));
+            // return new PostBodyRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.home_rv_post, parent, false));
             return new SinglePostRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.single_post_rv_layout, parent, false));
         } else if(viewType == PostView.SHOW_SIMPLE_TV){
             return  new SimpleTvRvHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.simple_rv_layout,parent,false));
@@ -91,7 +91,7 @@ public class HomeRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         Log.e("homerv", "onBindViewHolder: check position in recyclerview "+position );
 
 
-        if(position == mArrayHolder.getHomePostdata().size()-1){
+        if(position == mArrayHolder.getFeedData().size()-1){
             if(mHomeRvListener != null)
                 mHomeRvListener.onReachingBottom(position);
         }
@@ -113,20 +113,20 @@ public class HomeRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     private void putPostData(RecyclerView.ViewHolder holder, int position) {
-       SinglePostsRvData.setArrayHolder(mArrayHolder);
-        SinglePostsRvData.putPostData(holder,position,mHomeRvListener,mContext,SinglePostsRvData.HOME_RV);
+        SinglePostsRvData.setArrayHolder(mArrayHolder);
+        SinglePostsRvData.putPostData(holder,position,mHomeRvListener,mContext,SinglePostsRvData.FEED_RV);
         //SimplePostRvData.HOME_RV);
     }
 
     private void putContestData(RecyclerView.ViewHolder holder, int position) {
         ContestRvData.setArrayHolder(mArrayHolder);
-        ContestRvData.putContestData(holder,position,mHomeRvListener,mContext,mPrefer.getUsername(),SinglePostsRvData.HOME_RV);
+        ContestRvData.putContestData(holder,position,mHomeRvListener,mContext,mPrefer.getUsername(),SinglePostsRvData.FEED_RV);
         //SimplePostRvData.HOME_RV);
     }
 
     private void putSimpleTv(RecyclerView.ViewHolder holder, int position) {
         SimpleTvRvHolder body = (SimpleTvRvHolder) holder;
-        PostData postData = mArrayHolder.getHomePostdata().get(position);
+        PostData postData = mArrayHolder.getFeedData().get(position);
         SimpleTvData data = (SimpleTvData) postData;
         body.simpleTv.setText(data.getSimpleTv());
 
@@ -136,12 +136,12 @@ public class HomeRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
 
-        return mArrayHolder.getHomePostdata().size();
+        return mArrayHolder.getFeedData().size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        PostData dataChecker = mArrayHolder.getHomePostdata().get(position);
+        PostData dataChecker = mArrayHolder.getFeedData().get(position);
         if (dataChecker instanceof ContestData) {
             return PostView.SHOW_CONTEST;
         } else if (dataChecker instanceof SimplePostData) {
@@ -180,9 +180,3 @@ public class HomeRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
 }
-
-
-
-
-
-

@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
@@ -70,6 +71,11 @@ public class ContestRvData {
                 postData = mArrayHolder.getHomePostdata().get(position);
                 showRecyclerView(postData,holder,mContext,mHomeRvListener,position,loginUsername);
             }else Toaster.setToaster(mContext,"Please refresh a page");
+        }else if(check == SinglePostsRvData.FEED_RV){
+            if(position <= mArrayHolder.getFeedData().size()) {
+                postData = mArrayHolder.getFeedData().get(position);
+                showRecyclerView(postData,holder,mContext,mHomeRvListener,position,loginUsername);
+            }else Toaster.setToaster(mContext,"Please refresh a page");
         }
         else{
             if(position <= mArrayHolder.getTrendingData().size()){
@@ -116,7 +122,7 @@ public class ContestRvData {
 
 
 
-        Glide.with(mContext).load(Addresses.getWebAddress()+data.getLeftSideImage()).apply(options.centerCrop()).listener(new RequestListener<Drawable>() {
+        Glide.with(mContext).load(Addresses.getWebAddress()+data.getLeftSideImage()).apply(options.diskCacheStrategy(DiskCacheStrategy.ALL).centerCrop()).thumbnail(0.05f).listener(new RequestListener<Drawable>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 body.leftSidePb.setVisibility(View.GONE);
@@ -191,6 +197,16 @@ public class ContestRvData {
                     mHomeRvListener.onClickCreatorProfile(data);
             }
         });
+
+        body.creatorName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mHomeRvListener != null)
+                    mHomeRvListener.onClickCreatorProfile(data);
+            }
+        });
+
+
 
         body.leftSideName.setOnClickListener(new View.OnClickListener() {
             @Override

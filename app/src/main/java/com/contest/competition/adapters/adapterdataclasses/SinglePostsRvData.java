@@ -52,6 +52,7 @@ public class SinglePostsRvData {
     public static int HOME_RV = 1;
     public static int PROFILE_RV = 2;
     public static int TRENDING_RV = 3;
+    public static int FEED_RV = 4;
     private static LoginSharedPrefer mPrefer;
     public static final String DELETE_POST = "Delete post";
     private static ArrayHolder mArrayHolder;
@@ -96,9 +97,15 @@ public class SinglePostsRvData {
             }
 
 
-        }else {
+        }else if(check == TRENDING_RV){
             if(position <= mArrayHolder.getTrendingData().size()) {
                 postData = mArrayHolder.getTrendingData().get(position);
+                showSimplePostRecyclerView(postData,body,mContext,mHomeRvListener,position);
+            }else Toaster.setToaster(mContext,"Please refresh a page");
+        }else{
+            // Feed Data
+            if(position <= mArrayHolder.getFeedData().size()) {
+                postData = mArrayHolder.getFeedData().get(position);
                 showSimplePostRecyclerView(postData,body,mContext,mHomeRvListener,position);
             }else Toaster.setToaster(mContext,"Please refresh a page");
         }
@@ -358,7 +365,7 @@ public class SinglePostsRvData {
 
         final List<PowerMenuItem> items = new ArrayList<>();
 
-        items.add(new PowerMenuItem("Boost Post",false));
+       // items.add(new PowerMenuItem("Boost Post",false));
         items.add(new PowerMenuItem(DELETE_POST,false));
 
 

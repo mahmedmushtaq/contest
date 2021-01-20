@@ -345,13 +345,13 @@ public class ProfileRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder1.noOfCompetitionLoose.setText(data.getNoOfContestLose());//noofcompetition remaining
             holder1.noOfCompetitionWin.setText(data.getNoOfContestWin());//noofcompetition remaining
 
-            holder1.creditsLl.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(mProfileListener!= null)
-                        mProfileListener.onClickCredits();
-                }
-            });
+//            holder1.creditsLl.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if(mProfileListener!= null)
+//                        mProfileListener.onClickCredits();
+//                }
+//            });
 
             holder1.noOfFollowingll.setOnClickListener(new View.OnClickListener() {
                 @Override

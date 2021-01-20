@@ -79,6 +79,21 @@ public class RetrieveAllPosts {
         contestIds.clear();
         postIds.clear();
         boostedIds.clear();
+        retrievePost(context,loginUsername,profileUsername,lastPostId,lastContestId,firstPostId,firstContestId,lastBoostedId,false);
+
+    }
+
+    public static void retrieveFeedPost(final Context context, final String loginUsername, final String profileUsername, final String lastPostId, String lastContestId, final String firstPostId, final String firstContestId, final String lastBoostedId){
+        contestIds.clear();
+        postIds.clear();
+        boostedIds.clear();
+        retrievePost(context,loginUsername,profileUsername,lastPostId,lastContestId,firstPostId,firstContestId,lastBoostedId,true);
+
+    }
+
+
+    private static void retrievePost(final Context context, final String loginUsername, final String profileUsername, final String lastPostId, String lastContestId, final String firstPostId, final String firstContestId, final String lastBoostedId,final Boolean isFeed){
+
 
         OkHttpClient client = new OkHttpClient();
         RequestBody body = new FormBody.Builder()
@@ -91,9 +106,15 @@ public class RetrieveAllPosts {
                 .add("last_boosted_id",lastBoostedId)
                 .build();
 
-        Request request = new Request.Builder().post(body).url(Addresses.getWebAddress()+ SimplePostFiles.retrieveAllPostsFile).build();
+        String uri = Addresses.getWebAddress()+ SimplePostFiles.retrieveHomeFile;
+
+        if(isFeed)
+             uri = Addresses.getWebAddress()+SimplePostFiles.retrieveFeedFile;
+
+        Request request = new Request.Builder().post(body).url(uri).build();
 
 
+        final String finalUri = uri;
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -105,7 +126,7 @@ public class RetrieveAllPosts {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                final String body = response.body().string();
-              Log.e("posts", "onResponse: all Posts ====  = "+body );
+              Log.e("posts", "onResponse: all Posts ====  = "+body+ "uri = "+ finalUri);
 
                         try {
                             JSONObject object = new JSONObject(body);
@@ -118,6 +139,7 @@ public class RetrieveAllPosts {
 
                                 String checkType = object.getString("check_type");
                                 JSONArray  checkTypeArray = new JSONArray(checkType);
+
                                 for(int i = 0; i < checkTypeArray.length(); i++){
                                     String check = checkTypeArray.getString(i);
                                     if(check.equals("contest")){
@@ -358,15 +380,6 @@ public class RetrieveAllPosts {
             e.printStackTrace();
         }
 
-//        ((Activity)context).runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                Log.e("loadImage", "run: load image " );
-//                Glide.with(context)
-//                        .load(uri)
-//                        .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL))
-//                        .preload();
-//            }
-//        });
+
     }
 }

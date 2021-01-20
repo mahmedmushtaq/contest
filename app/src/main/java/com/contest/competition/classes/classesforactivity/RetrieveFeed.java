@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.contest.competition.adapters.RetrieveFeedRv;
 import com.contest.competition.adapters.rv.HomeRv;
 import com.contest.competition.classes.interfaces.HomeRvImplementation;
 import com.contest.competition.classes.models.ArrayHolder;
@@ -23,9 +24,7 @@ import com.contest.competition.utils.views.Toaster;
 
 import java.util.ArrayList;
 
-import okhttp3.OkHttpClient;
-
-public class MainPageDataLoadingClass {
+public class RetrieveFeed {
     private ArrayList<Integer> containOnlyContestId = new ArrayList<>();
     private ArrayList<Integer> containOnlySimplePostId = new ArrayList<>();
     private ArrayList<Integer> boostedIds = new ArrayList<>();
@@ -33,7 +32,7 @@ public class MainPageDataLoadingClass {
     private Context context;
     private LoginSharedPrefer mPrefer;
     private RecyclerView mRecyclerView;
-    private HomeRv rv;
+    private RetrieveFeedRv rv;
     private SwipeRefreshLayout swipe;
     private ProgressBar pb;
     private ArrayHolder mArrayHolder;
@@ -57,7 +56,7 @@ public class MainPageDataLoadingClass {
         swipe = sw;
     }
 
-    public void setHomeRv(HomeRv rv) {
+    public void setFeedRv(RetrieveFeedRv rv) {
         this.rv = rv;
     }
 
@@ -77,7 +76,7 @@ public class MainPageDataLoadingClass {
     public void clearArray() {
 
         if (mArrayHolder != null) {
-            mArrayHolder.getHomePostdata().clear();
+            mArrayHolder.getFeedData().clear();
             containOnlyContestId.clear();
             containOnlySimplePostId.clear();
             simplePostIdsLl = "";
@@ -96,7 +95,7 @@ public class MainPageDataLoadingClass {
 
         try {
 
-            RetrieveAllPosts.retrievePost(context, mPrefer.getUsername(), profileUsername, lastPostId, lastContestId, firstPostId, firstContestId, lastBoostedId);
+            RetrieveAllPosts.retrieveFeedPost(context, mPrefer.getUsername(), profileUsername, lastPostId, lastContestId, firstPostId, firstContestId, lastBoostedId);
         } catch (IndexOutOfBoundsException e) {
             Toaster.setToaster(context, "Please refresh a page");
         }
@@ -112,12 +111,12 @@ public class MainPageDataLoadingClass {
                     simplePostIdsLl += "" + id;
                     if (firstContestId.isEmpty() && firstPostId.isEmpty()) {
                         try {
-                            mArrayHolder.getHomePostdata().add(data);
+                            mArrayHolder.getFeedData().add(data);
                         } catch (ArrayIndexOutOfBoundsException e) {
                             Log.e("MainPageData", "onRetrieveSinglePostData: MAinPageDataLoadingClass ArrayIndexOutOfBoundException = ");
                         }
                     } else {
-                        mArrayHolder.getHomePostdata().add(0, data);
+                        mArrayHolder.getFeedData().add(0, data);
                     }
 
                 } else {
@@ -154,27 +153,28 @@ public class MainPageDataLoadingClass {
             public void onEnd(PostData data) {
                 //end reached mean no further data is found
 
-                Log.e("data", "onEnd: End Reached ");
-                // if(mArrayHolder.getHomePostdata().size() > 0) {
-                int index = mArrayHolder.getHomePostdata().size() - 1;
+
+                int index = mArrayHolder.getFeedData().size() - 1;
                 if (index == -1) {
-                    mArrayHolder.getHomePostdata().add(data);
+                    mArrayHolder.getFeedData().add(data);
                     return;
                 }
-                PostData postData = mArrayHolder.getHomePostdata().get(index);
+                PostData postData = mArrayHolder.getFeedData().get(index);
                 if (!(postData instanceof SimpleTvData))
-                    mArrayHolder.getHomePostdata().add(data);
-//                }else{
-//                    mArrayHolder.getHomePostdata().add(data);
-//                }
+                    mArrayHolder.getFeedData().add(data);
+
 
             }
 
             @Override
             public void onRetrieveOnlyIds(ArrayList<Integer> contestIds, ArrayList<Integer> postIds) {
                 if (firstPostId.isEmpty() && firstContestId.isEmpty()) {
-                    containOnlyContestId.addAll(contestIds);
-                    containOnlySimplePostId.addAll(postIds);
+                   try{
+                       containOnlyContestId.addAll(contestIds);
+                       containOnlySimplePostId.addAll(postIds);
+                   }catch(Exception e){
+                       Log.e("retrieveFeed", "onRetrieveOnlyIds: only retrieveIds error " );
+                   }
                 } else {
                     containOnlyContestId.addAll(0, contestIds);
                     containOnlySimplePostId.addAll(0, postIds);
@@ -196,7 +196,7 @@ public class MainPageDataLoadingClass {
 
                     if (firstContestId.isEmpty() && firstPostId.isEmpty()) {
                         try {
-                            mArrayHolder.getHomePostdata().add(data);
+                            mArrayHolder.getFeedData().add(data);
                         } catch (Exception e) {
                             Log.e("exceptionContestData", "onRetrieveContestData: Exception = " + e.getMessage());
                         }
@@ -204,7 +204,7 @@ public class MainPageDataLoadingClass {
 
                     } else {
 
-                        mArrayHolder.getHomePostdata().add(0, data);
+                        mArrayHolder.getFeedData().add(0, data);
                     }
 
 
@@ -242,7 +242,7 @@ public class MainPageDataLoadingClass {
                 // if(containOnlyHomeSimplePostId.isEmpty()) {
                 //       Toaster.setToaster(getBaseContext(),"loading more");
                 // if (containOnlyHomeContestId.get(containOnlyHomeContestId.size() - 1) > -1 && containOnlyHomeSimplePostId.get(containOnlyHomeSimplePostId.size() - 1) > -1)
-                PostData data = mArrayHolder.getHomePostdata().get(mArrayHolder.getHomePostdata().size() - 1);
+                PostData data = mArrayHolder.getFeedData().get(mArrayHolder.getFeedData().size() - 1);
                 if (!(data instanceof SimpleTvData)) {
                     if (data instanceof SimplePostData) {
                         SimplePostData simplePostData = (SimplePostData) data;
@@ -265,7 +265,7 @@ public class MainPageDataLoadingClass {
 
             @Override
             public void remove(int position) {
-                mArrayHolder.getHomePostdata().remove(position);
+                mArrayHolder.getFeedData().remove(position);
                 mRecyclerView.removeViewAt(position);
                 rv.setArrayHolder(mArrayHolder);
                 rv.notifyItemRemoved(position);

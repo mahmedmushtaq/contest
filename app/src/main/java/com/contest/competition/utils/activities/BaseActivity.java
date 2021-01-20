@@ -35,9 +35,8 @@ import com.contest.competition.utils.activities.front.HomeActivity;
 import com.contest.competition.utils.activities.front.NotificationActivity;
 import com.contest.competition.utils.activities.front.ProfileActivity;
 import com.contest.competition.utils.activities.front.SearchActivity;
-import com.contest.competition.utils.activities.front.TrendingActivity;
+import com.contest.competition.utils.activities.front.FeedActivity;
 import com.contest.competition.utils.services.NotificationReceiver;
-import com.contest.competition.utils.services.NotificationsReceive;
 import com.contest.competition.utils.views.Toaster;
 import com.firebase.jobdispatcher.Constraint;
 import com.firebase.jobdispatcher.FirebaseJobDispatcher;
@@ -45,8 +44,6 @@ import com.firebase.jobdispatcher.GooglePlayDriver;
 import com.firebase.jobdispatcher.Job;
 import com.firebase.jobdispatcher.Lifetime;
 import com.firebase.jobdispatcher.Trigger;
-
-import me.leolin.shortcutbadger.ShortcutBadger;
 
 public abstract  class BaseActivity extends AppCompatActivity {
 
@@ -56,11 +53,11 @@ public abstract  class BaseActivity extends AppCompatActivity {
 
     protected static final int CONNECTED_WIFI = 1;
     protected static final int DISCONNECTED_WIFI = 0;
-    protected int HOME = 0;
-    protected int TRENDING = 4;
-    protected int SEARCH = 1;
-    protected int NOTIFICATION = 2;
-    protected int PROFILE = 3;
+    protected int HOME = 1;
+    protected int FEED = 0;
+    protected int SEARCH = 2;
+    protected int NOTIFICATION = 3;
+    protected int PROFILE = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,18 +151,18 @@ public abstract  class BaseActivity extends AppCompatActivity {
 
     private void setNavigation(){
         // Create items
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem("Home", R.drawable.home,  R.color.white);
-       // AHBottomNavigationItem item2 = new AHBottomNavigationItem("Trending", R.drawable.trending_up,  R.color.white);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem("Search", R.drawable.search, R.color.white);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem("Notifications", R.drawable.alert,  R.color.white);
-        AHBottomNavigationItem item4 = new AHBottomNavigationItem("Profile", R.drawable.profile_icon,  R.color.white);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem("Feed", R.drawable.feed,  R.color.white);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem("Home", R.drawable.home,  R.color.white);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem("Search", R.drawable.search, R.color.white);
+        AHBottomNavigationItem item4 = new AHBottomNavigationItem("Notifications", R.drawable.alert,  R.color.white);
+        AHBottomNavigationItem item5 = new AHBottomNavigationItem("Profile", R.drawable.profile_icon,  R.color.white);
 
         // Add items
         mNavigation.addItem(item1);
-       // mNavigation.addItem(item2);
         mNavigation.addItem(item2);
         mNavigation.addItem(item3);
         mNavigation.addItem(item4);
+        mNavigation.addItem(item5);
 
         mNavigation.setAccentColor(Color.parseColor("#f2f4f5"));
         mNavigation.setInactiveColor(Color.parseColor("#ffffff"));
@@ -228,8 +225,8 @@ public abstract  class BaseActivity extends AppCompatActivity {
         }
         if(BaseActivity.this instanceof SearchActivity){
             mNavigation.setCurrentItem(SEARCH);
-        } if(BaseActivity.this instanceof TrendingActivity){
-            mNavigation.setCurrentItem(TRENDING);
+        } if(BaseActivity.this instanceof FeedActivity){
+            mNavigation.setCurrentItem(FEED);
         }
 
 
@@ -278,11 +275,11 @@ public abstract  class BaseActivity extends AppCompatActivity {
             startActivity(new Intent(getBaseContext(), HomeActivity.class));
             finish();
 
-        }else if(position == TRENDING){//2
+        }else if(position == FEED){//2
             if(!Network.isAvailable(this)){
                 Toaster.setToaster(getBaseContext(),"Network is not available");
             }
-           startActivity(new Intent(getBaseContext(), TrendingActivity.class));
+           startActivity(new Intent(getBaseContext(), FeedActivity.class));
             finish();
 
         }
