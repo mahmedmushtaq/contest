@@ -35,7 +35,7 @@ import com.contest.competition.R;
  * Created by M Ahmed Mushtaq on 7/6/2018.
  */
 
-public class RetrieveFeedRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class RetrieveExploreRv extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     private int BODY = 1;
@@ -91,7 +91,7 @@ public class RetrieveFeedRv extends RecyclerView.Adapter<RecyclerView.ViewHolder
         Log.e("homerv", "onBindViewHolder: check position in recyclerview "+position );
 
 
-        if(position == mArrayHolder.getFeedData().size()-1){
+        if(position == mArrayHolder.getExploreData().size()-1){
             if(mHomeRvListener != null)
                 mHomeRvListener.onReachingBottom(position);
         }
@@ -114,19 +114,19 @@ public class RetrieveFeedRv extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private void putPostData(RecyclerView.ViewHolder holder, int position) {
         SinglePostsRvData.setArrayHolder(mArrayHolder);
-        SinglePostsRvData.putPostData(holder,position,mHomeRvListener,mContext,SinglePostsRvData.FEED_RV);
+        SinglePostsRvData.putPostData(holder,position,mHomeRvListener,mContext,SinglePostsRvData.Explore_Rv);
         //SimplePostRvData.HOME_RV);
     }
 
     private void putContestData(RecyclerView.ViewHolder holder, int position) {
         ContestRvData.setArrayHolder(mArrayHolder);
-        ContestRvData.putContestData(holder,position,mHomeRvListener,mContext,mPrefer.getUsername(),SinglePostsRvData.FEED_RV);
+        ContestRvData.putContestData(holder,position,mHomeRvListener,mContext,mPrefer.getUsername(),SinglePostsRvData.Explore_Rv);
         //SimplePostRvData.HOME_RV);
     }
 
     private void putSimpleTv(RecyclerView.ViewHolder holder, int position) {
         SimpleTvRvHolder body = (SimpleTvRvHolder) holder;
-        PostData postData = mArrayHolder.getFeedData().get(position);
+        PostData postData = mArrayHolder.getExploreData().get(position);
         SimpleTvData data = (SimpleTvData) postData;
         body.simpleTv.setText(data.getSimpleTv());
 
@@ -136,12 +136,12 @@ public class RetrieveFeedRv extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public int getItemCount() {
 
-        return mArrayHolder.getFeedData().size();
+        return mArrayHolder.getExploreData().size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        PostData dataChecker = mArrayHolder.getFeedData().get(position);
+        PostData dataChecker = mArrayHolder.getExploreData().get(position);
         if (dataChecker instanceof ContestData) {
             return PostView.SHOW_CONTEST;
         } else if (dataChecker instanceof SimplePostData) {

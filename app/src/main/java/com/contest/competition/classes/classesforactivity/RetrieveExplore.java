@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.contest.competition.adapters.RetrieveFeedRv;
+import com.contest.competition.adapters.RetrieveExploreRv;
 import com.contest.competition.adapters.rv.HomeRv;
 import com.contest.competition.classes.interfaces.HomeRvImplementation;
 import com.contest.competition.classes.models.ArrayHolder;
@@ -24,7 +24,7 @@ import com.contest.competition.utils.views.Toaster;
 
 import java.util.ArrayList;
 
-public class RetrieveFeed {
+public class RetrieveExplore {
     private ArrayList<Integer> containOnlyContestId = new ArrayList<>();
     private ArrayList<Integer> containOnlySimplePostId = new ArrayList<>();
     private ArrayList<Integer> boostedIds = new ArrayList<>();
@@ -32,7 +32,7 @@ public class RetrieveFeed {
     private Context context;
     private LoginSharedPrefer mPrefer;
     private RecyclerView mRecyclerView;
-    private RetrieveFeedRv rv;
+    private RetrieveExploreRv rv;
     private SwipeRefreshLayout swipe;
     private ProgressBar pb;
     private ArrayHolder mArrayHolder;
@@ -56,7 +56,7 @@ public class RetrieveFeed {
         swipe = sw;
     }
 
-    public void setFeedRv(RetrieveFeedRv rv) {
+    public void setExploreRv(RetrieveExploreRv rv) {
         this.rv = rv;
     }
 
@@ -76,7 +76,7 @@ public class RetrieveFeed {
     public void clearArray() {
 
         if (mArrayHolder != null) {
-            mArrayHolder.getFeedData().clear();
+            mArrayHolder.getExploreData().clear();
             containOnlyContestId.clear();
             containOnlySimplePostId.clear();
             simplePostIdsLl = "";
@@ -95,7 +95,7 @@ public class RetrieveFeed {
 
         try {
 
-            RetrieveAllPosts.retrieveFeedPost(context, mPrefer.getUsername(), profileUsername, lastPostId, lastContestId, firstPostId, firstContestId, lastBoostedId);
+            RetrieveAllPosts.retrieveExplorePost(context, mPrefer.getUsername(), profileUsername, lastPostId, lastContestId, firstPostId, firstContestId, lastBoostedId);
         } catch (IndexOutOfBoundsException e) {
             Toaster.setToaster(context, "Please refresh a page");
         }
@@ -111,12 +111,12 @@ public class RetrieveFeed {
                     simplePostIdsLl += "" + id;
                     if (firstContestId.isEmpty() && firstPostId.isEmpty()) {
                         try {
-                            mArrayHolder.getFeedData().add(data);
+                            mArrayHolder.getExploreData().add(data);
                         } catch (ArrayIndexOutOfBoundsException e) {
                             Log.e("MainPageData", "onRetrieveSinglePostData: MAinPageDataLoadingClass ArrayIndexOutOfBoundException = ");
                         }
                     } else {
-                        mArrayHolder.getFeedData().add(0, data);
+                        mArrayHolder.getExploreData().add(0, data);
                     }
 
                 } else {
@@ -154,14 +154,14 @@ public class RetrieveFeed {
                 //end reached mean no further data is found
 
 
-                int index = mArrayHolder.getFeedData().size() - 1;
+                int index = mArrayHolder.getExploreData().size() - 1;
                 if (index == -1) {
-                    mArrayHolder.getFeedData().add(data);
+                    mArrayHolder.getExploreData().add(data);
                     return;
                 }
-                PostData postData = mArrayHolder.getFeedData().get(index);
+                PostData postData = mArrayHolder.getExploreData().get(index);
                 if (!(postData instanceof SimpleTvData))
-                    mArrayHolder.getFeedData().add(data);
+                    mArrayHolder.getExploreData().add(data);
 
 
             }
@@ -173,7 +173,7 @@ public class RetrieveFeed {
                        containOnlyContestId.addAll(contestIds);
                        containOnlySimplePostId.addAll(postIds);
                    }catch(Exception e){
-                       Log.e("retrieveFeed", "onRetrieveOnlyIds: only retrieveIds error " );
+                       Log.e("retrieveExplore", "onRetrieveOnlyIds: only retrieveIds error " );
                    }
                 } else {
                     containOnlyContestId.addAll(0, contestIds);
@@ -196,7 +196,7 @@ public class RetrieveFeed {
 
                     if (firstContestId.isEmpty() && firstPostId.isEmpty()) {
                         try {
-                            mArrayHolder.getFeedData().add(data);
+                            mArrayHolder.getExploreData().add(data);
                         } catch (Exception e) {
                             Log.e("exceptionContestData", "onRetrieveContestData: Exception = " + e.getMessage());
                         }
@@ -204,7 +204,7 @@ public class RetrieveFeed {
 
                     } else {
 
-                        mArrayHolder.getFeedData().add(0, data);
+                        mArrayHolder.getExploreData().add(0, data);
                     }
 
 
@@ -242,7 +242,7 @@ public class RetrieveFeed {
                 // if(containOnlyHomeSimplePostId.isEmpty()) {
                 //       Toaster.setToaster(getBaseContext(),"loading more");
                 // if (containOnlyHomeContestId.get(containOnlyHomeContestId.size() - 1) > -1 && containOnlyHomeSimplePostId.get(containOnlyHomeSimplePostId.size() - 1) > -1)
-                PostData data = mArrayHolder.getFeedData().get(mArrayHolder.getFeedData().size() - 1);
+                PostData data = mArrayHolder.getExploreData().get(mArrayHolder.getExploreData().size() - 1);
                 if (!(data instanceof SimpleTvData)) {
                     if (data instanceof SimplePostData) {
                         SimplePostData simplePostData = (SimplePostData) data;
@@ -265,7 +265,7 @@ public class RetrieveFeed {
 
             @Override
             public void remove(int position) {
-                mArrayHolder.getFeedData().remove(position);
+                mArrayHolder.getExploreData().remove(position);
                 mRecyclerView.removeViewAt(position);
                 rv.setArrayHolder(mArrayHolder);
                 rv.notifyItemRemoved(position);

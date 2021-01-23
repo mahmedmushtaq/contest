@@ -5,19 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.contest.competition.classes.KeyStore;
 import com.contest.competition.classes.Validator;
 import com.contest.competition.classes.webfiles.Addresses;
 import com.contest.competition.classes.webfiles.CreateDirectUserByFirebaseSignIn;
-import com.contest.competition.classes.webfiles.FormsFiles;
 import com.contest.competition.storage.sharedpreferences.sharedpreferencesetter.LoginSharedPreferenceSetter;
-import com.contest.competition.utils.activities.forms.ConfirmEmailActivity;
-import com.contest.competition.utils.activities.front.HomeActivity;
+import com.contest.competition.utils.activities.front.ExploreActivity;
 import com.contest.competition.utils.views.Dialoger;
 import com.contest.competition.utils.views.Toaster;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
@@ -28,7 +24,6 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -95,7 +90,7 @@ public class CreateUserByGoogleSignIn  {
                                     @Override
                                     public void run() {
                                         Dialoger.hideAlerter();
-                                        Intent intent = new Intent(context, HomeActivity.class);
+                                        Intent intent = new Intent(context, ExploreActivity.class);
                                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                         context.startActivity(intent);
 

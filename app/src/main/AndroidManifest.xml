@@ -37,7 +37,7 @@
             android:name=".utils.activities.front.HomeActivity"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
-            android:name=".utils.activities.front.FeedActivity"
+            android:name=".utils.activities.front.ExploreActivity"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".utils.activities.front.SearchActivity"

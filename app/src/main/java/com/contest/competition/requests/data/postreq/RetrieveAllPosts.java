@@ -1,9 +1,7 @@
 package com.contest.competition.requests.data.postreq;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
-import android.util.JsonReader;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -16,7 +14,6 @@ import java.util.concurrent.ExecutionException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.Dispatcher;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -28,14 +25,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.contest.competition.classes.Validator;
-import com.contest.competition.classes.classesforactivity.MainPageDataLoadingClass;
 import com.contest.competition.classes.models.ContestData;
 import com.contest.competition.classes.models.PostData;
 import com.contest.competition.classes.models.SimplePostData;
 import com.contest.competition.classes.models.SimpleTvData;
 import com.contest.competition.classes.webfiles.Addresses;
 import com.contest.competition.classes.webfiles.SimplePostFiles;
-import com.contest.competition.classes.webfiles.TrendingFiles;
 
 import com.contest.competition.utils.views.PostView;
 
@@ -83,7 +78,7 @@ public class RetrieveAllPosts {
 
     }
 
-    public static void retrieveFeedPost(final Context context, final String loginUsername, final String profileUsername, final String lastPostId, String lastContestId, final String firstPostId, final String firstContestId, final String lastBoostedId){
+    public static void retrieveExplorePost(final Context context, final String loginUsername, final String profileUsername, final String lastPostId, String lastContestId, final String firstPostId, final String firstContestId, final String lastBoostedId){
         contestIds.clear();
         postIds.clear();
         boostedIds.clear();
@@ -92,7 +87,7 @@ public class RetrieveAllPosts {
     }
 
 
-    private static void retrievePost(final Context context, final String loginUsername, final String profileUsername, final String lastPostId, String lastContestId, final String firstPostId, final String firstContestId, final String lastBoostedId,final Boolean isFeed){
+    private static void retrievePost(final Context context, final String loginUsername, final String profileUsername, final String lastPostId, String lastContestId, final String firstPostId, final String firstContestId, final String lastBoostedId,final Boolean isExplore){
 
 
         OkHttpClient client = new OkHttpClient();
@@ -108,8 +103,8 @@ public class RetrieveAllPosts {
 
         String uri = Addresses.getWebAddress()+ SimplePostFiles.retrieveHomeFile;
 
-        if(isFeed)
-             uri = Addresses.getWebAddress()+SimplePostFiles.retrieveFeedFile;
+        if(isExplore)
+             uri = Addresses.getWebAddress()+SimplePostFiles.retrieveExploreFile;
 
         Request request = new Request.Builder().post(body).url(uri).build();
 

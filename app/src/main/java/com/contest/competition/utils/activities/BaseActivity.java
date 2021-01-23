@@ -35,7 +35,7 @@ import com.contest.competition.utils.activities.front.HomeActivity;
 import com.contest.competition.utils.activities.front.NotificationActivity;
 import com.contest.competition.utils.activities.front.ProfileActivity;
 import com.contest.competition.utils.activities.front.SearchActivity;
-import com.contest.competition.utils.activities.front.FeedActivity;
+import com.contest.competition.utils.activities.front.ExploreActivity;
 import com.contest.competition.utils.services.NotificationReceiver;
 import com.contest.competition.utils.views.Toaster;
 import com.firebase.jobdispatcher.Constraint;
@@ -54,10 +54,11 @@ public abstract  class BaseActivity extends AppCompatActivity {
     protected static final int CONNECTED_WIFI = 1;
     protected static final int DISCONNECTED_WIFI = 0;
     protected int HOME = 1;
-    protected int FEED = 0;
+    protected int EXPLORE = 0;
     protected int SEARCH = 2;
     protected int NOTIFICATION = 3;
     protected int PROFILE = 4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,7 +152,7 @@ public abstract  class BaseActivity extends AppCompatActivity {
 
     private void setNavigation(){
         // Create items
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem("Feed", R.drawable.feed,  R.color.white);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem("Explore", R.drawable.explore,  R.color.white);
         AHBottomNavigationItem item2 = new AHBottomNavigationItem("Home", R.drawable.home,  R.color.white);
         AHBottomNavigationItem item3 = new AHBottomNavigationItem("Search", R.drawable.search, R.color.white);
         AHBottomNavigationItem item4 = new AHBottomNavigationItem("Notifications", R.drawable.alert,  R.color.white);
@@ -225,8 +226,8 @@ public abstract  class BaseActivity extends AppCompatActivity {
         }
         if(BaseActivity.this instanceof SearchActivity){
             mNavigation.setCurrentItem(SEARCH);
-        } if(BaseActivity.this instanceof FeedActivity){
-            mNavigation.setCurrentItem(FEED);
+        } if(BaseActivity.this instanceof ExploreActivity){
+            mNavigation.setCurrentItem(EXPLORE);
         }
 
 
@@ -275,11 +276,11 @@ public abstract  class BaseActivity extends AppCompatActivity {
             startActivity(new Intent(getBaseContext(), HomeActivity.class));
             finish();
 
-        }else if(position == FEED){//2
+        }else if(position == EXPLORE){//2
             if(!Network.isAvailable(this)){
                 Toaster.setToaster(getBaseContext(),"Network is not available");
             }
-           startActivity(new Intent(getBaseContext(), FeedActivity.class));
+           startActivity(new Intent(getBaseContext(), ExploreActivity.class));
             finish();
 
         }
@@ -372,4 +373,6 @@ public abstract  class BaseActivity extends AppCompatActivity {
             Toaster.setToaster(getBaseContext(),"Internet connection is required");
         }
     }
+
+
 }

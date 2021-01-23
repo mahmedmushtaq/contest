@@ -37,6 +37,9 @@ public class MainPageDataLoadingClass {
     private SwipeRefreshLayout swipe;
     private ProgressBar pb;
     private ArrayHolder mArrayHolder;
+    // this is used to saveData when activity is switched
+    // then do not send request to fetch new data
+    private boolean isPreviousDataIsPresent = false;
 
     private int checkPost;
 
@@ -87,7 +90,21 @@ public class MainPageDataLoadingClass {
 
     public void onSwipeLayout() {
         clearArray();
+        setPreviousDataIsPresent(false);
         retrieveAllPosts("", "", "", "", "", "");
+
+    }
+
+    public void setPreviousDataIsPresent(boolean previousDataIsPresent) {
+        isPreviousDataIsPresent = previousDataIsPresent;
+    }
+
+    public boolean isPreviousDataIsPresent() {
+        return isPreviousDataIsPresent;
+    }
+
+    public void retrieveAllPosts(){
+        retrieveAllPosts("","","","","","");
 
     }
 
@@ -95,7 +112,9 @@ public class MainPageDataLoadingClass {
 
 
         try {
-
+//            Log.e("LOAD", "retrieveAllPosts: load === "+isPreviousDataIsPresent() );
+//            Log.e("MainPageDataLoading", "retrieveAllPosts: load more ===== ,retriev("+isPreviousDataIsPresent );
+//           if(!isPreviousDataIsPresent())
             RetrieveAllPosts.retrievePost(context, mPrefer.getUsername(), profileUsername, lastPostId, lastContestId, firstPostId, firstContestId, lastBoostedId);
         } catch (IndexOutOfBoundsException e) {
             Toaster.setToaster(context, "Please refresh a page");
@@ -286,6 +305,7 @@ public class MainPageDataLoadingClass {
 
                     int lastPostId = containOnlySimplePostId.get(containOnlySimplePostId.size() - 1);
                     int lastContestId = containOnlyContestId.get(containOnlyContestId.size() - 1);
+                    setPreviousDataIsPresent(false);
                     retrieveAllPosts("", lastPostId + "", lastContestId + "", "", "", "");
                 } catch (ArrayIndexOutOfBoundsException e) {
                     Log.e("MainPageDataLoading", "setLoadMore: Index pointer exception ");
@@ -298,16 +318,19 @@ public class MainPageDataLoadingClass {
                 int lastPostId = containOnlySimplePostId.get(containOnlySimplePostId.size() - 1);
                 int lastContestId = containOnlyContestId.get(containOnlyContestId.size() - 1);
                 int lastBoostId = boostedIds.get(boostedIds.size() - 1);
+                setPreviousDataIsPresent(false);
                 retrieveAllPosts("", lastPostId + "", lastContestId + "", "", "", lastBoostId + "");
 
             }
         } else if (!containOnlySimplePostId.isEmpty() && containOnlyContestId.isEmpty()) {
             if (boostedIds.isEmpty()) {
                 int lastPostId = containOnlySimplePostId.get(containOnlySimplePostId.size() - 1);
+                setPreviousDataIsPresent(false);
                 retrieveAllPosts("", lastPostId + "", "", "", "", "");
             } else {
                 int lastPostId = containOnlySimplePostId.get(containOnlySimplePostId.size() - 1);
                 int lastBoostId = boostedIds.get(boostedIds.size() - 1);
+                setPreviousDataIsPresent(false);
                 retrieveAllPosts("", lastPostId + "", "", "", "", lastBoostId + "");
 
             }
@@ -315,10 +338,12 @@ public class MainPageDataLoadingClass {
             if (boostedIds.isEmpty()) {
 
                 int lastContestId = containOnlyContestId.get(containOnlyContestId.size() - 1);
+                setPreviousDataIsPresent(false);
                 retrieveAllPosts("", "", lastContestId + "", "", "", "");
             } else {
                 int lastContestId = containOnlyContestId.get(containOnlyContestId.size() - 1);
                 int lastBoostId = boostedIds.get(boostedIds.size() - 1);
+                setPreviousDataIsPresent(false);
                 retrieveAllPosts("", "", lastContestId + "", "", "", "" + lastBoostId);
 
             }

@@ -8,11 +8,13 @@ import android.os.Bundle;
 
 import android.os.Handler;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,8 +22,8 @@ import android.widget.ProgressBar;
 
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.contest.competition.adapters.RetrieveFeedRv;
-import com.contest.competition.classes.classesforactivity.RetrieveFeed;
+import com.contest.competition.adapters.RetrieveExploreRv;
+import com.contest.competition.classes.classesforactivity.RetrieveExplore;
 import com.contest.competition.classes.models.ArrayHolder;
 
 import com.contest.competition.messages.activities.ConversationActivity;
@@ -39,12 +41,12 @@ import smartdevelop.ir.eram.showcaseviewlib.GuideView;
 import smartdevelop.ir.eram.showcaseviewlib.config.DismissType;
 
 
-public class FeedActivity extends BaseActivity {
+public class ExploreActivity extends BaseActivity {
 
     private EditText searchEt;
     private Toolbar searchActivityToolbar;
     private RecyclerView mRecyclerView;
-    private RetrieveFeedRv rv;
+    private RetrieveExploreRv rv;
     private LoginSharedPrefer mPrefer;
     private ProgressBar homeRvPb;
     private SwipeRefreshLayout swipe;
@@ -63,7 +65,7 @@ public class FeedActivity extends BaseActivity {
 
 //    private CountDownTimer mTimer;
 
-    private RetrieveFeed mRetrieveFeed;
+    private RetrieveExplore mRetrieveExplore;
     private IntroSharedPreference mIntroSharedPreference;
     private ImageView openConversation;
 
@@ -75,12 +77,12 @@ public class FeedActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         mArrayHolder = new ArrayHolder();
-        mRetrieveFeed = new RetrieveFeed();
-        mRetrieveFeed.setArrayHolder(mArrayHolder);
-        mRetrieveFeed.clearArray();
+        mRetrieveExplore = new RetrieveExplore();
+        mRetrieveExplore.setArrayHolder(mArrayHolder);
+        mRetrieveExplore.clearArray();
 
 
-        rv = new RetrieveFeedRv();
+        rv = new RetrieveExploreRv();
         rv.setArrayHolder(mArrayHolder);
 
         mPrefer = new LoginSharedPrefer(this);
@@ -93,13 +95,13 @@ public class FeedActivity extends BaseActivity {
         swipe.setRefreshing(false);
 
 
-        mRetrieveFeed.setContext(this);
-        mRetrieveFeed.setFeedRv(rv);
-        mRetrieveFeed.setLoginSharedPrefer(mPrefer);
-        mRetrieveFeed.setRecyclerView(mRecyclerView);
-        mRetrieveFeed.setSwipe(swipe);
-        mRetrieveFeed.setPb(homeRvPb);
-        mRetrieveFeed.rvListener();
+        mRetrieveExplore.setContext(this);
+        mRetrieveExplore.setExploreRv(rv);
+        mRetrieveExplore.setLoginSharedPrefer(mPrefer);
+        mRetrieveExplore.setRecyclerView(mRecyclerView);
+        mRetrieveExplore.setSwipe(swipe);
+        mRetrieveExplore.setPb(homeRvPb);
+        mRetrieveExplore.rvListener();
 
         mIntroSharedPreference  =new IntroSharedPreference(this);
 
@@ -109,7 +111,7 @@ public class FeedActivity extends BaseActivity {
             @Override
             public void onRefresh() {
 
-                mRetrieveFeed.onSwipeLayout();
+                mRetrieveExplore.onSwipeLayout();
 
             }
         });
@@ -221,13 +223,13 @@ public class FeedActivity extends BaseActivity {
     private void createNewPost() {
         startActivity(new Intent(getBaseContext(), SelectContestActivity.class));
 
-        Animatoo.animateSlideLeft(FeedActivity.this);
+        Animatoo.animateSlideLeft(ExploreActivity.this);
 
     }
 
 
     private void rvListener(){
-        mRetrieveFeed.rvListener();
+        mRetrieveExplore.rvListener();
 
     }
 
@@ -296,7 +298,7 @@ public class FeedActivity extends BaseActivity {
 
             //retrieveAllPosts("","","","","","");
 
-            mRetrieveFeed.retrieveAllPosts("","","","","","");
+            mRetrieveExplore.retrieveAllPosts("","","","","","");
 
             return null;
         }
@@ -379,6 +381,16 @@ public class FeedActivity extends BaseActivity {
         //  mTimer.cancel();
         super.onStop();
 
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
     }
 
     @Override

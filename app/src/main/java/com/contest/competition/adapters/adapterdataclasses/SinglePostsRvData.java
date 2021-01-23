@@ -1,13 +1,10 @@
 package com.contest.competition.adapters.adapterdataclasses;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable;
 
 import android.util.Log;
 import android.view.GestureDetector;
@@ -16,12 +13,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.Target;
 import com.contest.competition.R;
 import com.contest.competition.adapters.holders.SinglePostRvHolder;
 import com.contest.competition.classes.KeyStore;
@@ -35,13 +28,8 @@ import com.contest.competition.utils.views.ImageLoadProgressBar;
 import com.contest.competition.utils.views.Menu;
 import com.contest.competition.utils.views.PostView;
 import com.contest.competition.utils.views.Toaster;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.drawable.ProgressBarDrawable;
-import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.generic.RoundingParams;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.skydoves.powermenu.PowerMenuItem;
 
 import java.util.ArrayList;
@@ -52,7 +40,7 @@ public class SinglePostsRvData {
     public static int HOME_RV = 1;
     public static int PROFILE_RV = 2;
     public static int TRENDING_RV = 3;
-    public static int FEED_RV = 4;
+    public static int Explore_Rv = 4;
     private static LoginSharedPrefer mPrefer;
     public static final String DELETE_POST = "Delete post";
     private static ArrayHolder mArrayHolder;
@@ -103,9 +91,9 @@ public class SinglePostsRvData {
                 showSimplePostRecyclerView(postData,body,mContext,mHomeRvListener,position);
             }else Toaster.setToaster(mContext,"Please refresh a page");
         }else{
-            // Feed Data
-            if(position <= mArrayHolder.getFeedData().size()) {
-                postData = mArrayHolder.getFeedData().get(position);
+            // Explore Data
+            if(position <= mArrayHolder.getExploreData().size()) {
+                postData = mArrayHolder.getExploreData().get(position);
                 showSimplePostRecyclerView(postData,body,mContext,mHomeRvListener,position);
             }else Toaster.setToaster(mContext,"Please refresh a page");
         }
@@ -375,11 +363,11 @@ public class SinglePostsRvData {
             public void onMenuClick(int position, PowerMenuItem item) {
 
                     if(position == 0)
-                    { if(listener != null)
-                            listener.onClickBoostBtn(data);
-                    }else {
+                    {
                         if(listener != null)
                             listener.onClickDeleteBtn(data,rvPosition);
+//                        if(listener != null)
+//                            listener.onClickBoostBtn(data);
                     }
 
             }

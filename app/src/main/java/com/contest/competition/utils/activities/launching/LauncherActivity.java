@@ -9,9 +9,8 @@ import android.os.Bundle;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.contest.competition.R;
-import com.contest.competition.utils.activities.front.FeedActivity;
+import com.contest.competition.utils.activities.front.ExploreActivity;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 
 import com.contest.competition.classes.Network;
 import com.contest.competition.storage.sharedpreferences.LoginSharedPrefer;
-import com.contest.competition.utils.activities.front.HomeActivity;
 
 
 public class LauncherActivity extends AppCompatActivity {
@@ -86,7 +84,7 @@ public class LauncherActivity extends AppCompatActivity {
 
     private void openHomeActivity(){
         if(Network.isAvailable(this)) {
-            startActivity(new Intent(getBaseContext(), FeedActivity.class));
+            startActivity(new Intent(getBaseContext(), ExploreActivity.class));
             finish();
            Animatoo.animateSlideLeft(LauncherActivity.this);
         }else{

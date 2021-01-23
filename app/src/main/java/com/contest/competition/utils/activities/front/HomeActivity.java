@@ -9,11 +9,14 @@ import android.os.CountDownTimer;
 
 import android.os.Handler;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,6 +28,7 @@ import com.contest.competition.adapters.rv.HomeRv;
 import com.contest.competition.classes.classesforactivity.MainPageDataLoadingClass;
 import com.contest.competition.classes.models.ArrayHolder;
 
+import com.contest.competition.classes.models.PostData;
 import com.contest.competition.messages.activities.ConversationActivity;
 import com.contest.competition.storage.sharedpreferences.IntroSharedPreference;
 import com.contest.competition.storage.sharedpreferences.LoginSharedPrefer;
@@ -35,6 +39,8 @@ import com.contest.competition.utils.views.Menu;
 
 import com.contest.competition.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 import smartdevelop.ir.eram.showcaseviewlib.GuideView;
 import smartdevelop.ir.eram.showcaseviewlib.config.DismissType;
@@ -51,6 +57,7 @@ public class HomeActivity extends BaseActivity {
     private SwipeRefreshLayout swipe;
     private BackgroundAsync mBackgroundAsync;
     private ArrayHolder mArrayHolder;
+    private static final String SAVE_STATE = "SAVE_STATE";
 
    // private CountDownTimer mTimer;
   //  private boolean countDownTimerIsRunning = false;
@@ -77,6 +84,10 @@ public class HomeActivity extends BaseActivity {
 
         mArrayHolder = new ArrayHolder();
         mHomeActivityClass = new MainPageDataLoadingClass();
+
+
+
+
         mHomeActivityClass.setArrayHolder(mArrayHolder);
         mHomeActivityClass.clearArray();
 
@@ -89,6 +100,10 @@ public class HomeActivity extends BaseActivity {
 
         mRecyclerView = findViewById(R.id.home_rv);
         homeRvPb = findViewById(R.id.homeRvPb);
+
+        if(mHomeActivityClass.isPreviousDataIsPresent()){
+            homeRvPb.setVisibility(View.GONE);
+        }
         swipe = findViewById(R.id.swipeHome);
        // openConversation = findViewById(R.id.home_openConversations);
         swipe.setRefreshing(false);
@@ -297,7 +312,9 @@ public class HomeActivity extends BaseActivity {
 
              //retrieveAllPosts("","","","","","");
 
-            mHomeActivityClass.retrieveAllPosts("","","","","","");
+            mHomeActivityClass.retrieveAllPosts();
+
+//            mHomeActivityClass.retrieveAllPosts("","","","","","");
 
             return null;
         }
@@ -370,6 +387,8 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onPause() {
 
+        Log.e("HomeActivity", "onPause: Activity paused = " );
+
        // mTimer.cancel();
         super.onPause();
 
@@ -382,9 +401,13 @@ public class HomeActivity extends BaseActivity {
 
     }
 
+
+
     @Override
     protected void notifyItemSelected(int position) {
         if(mRecyclerView != null && !mArrayHolder.getHomePostdata().isEmpty()){
+
+
             mArrayHolder.getHomePostdata().clear();
             rv.notifyDataSetChanged();
             mRecyclerView.getRecycledViewPool().clear();

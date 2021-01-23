@@ -1,6 +1,5 @@
 package com.contest.competition.adapters.adapterdataclasses;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
@@ -23,7 +22,6 @@ import com.contest.competition.R;
 import com.contest.competition.adapters.holders.ContestDataRvHolder;
 import com.contest.competition.classes.HighLighter;
 import com.contest.competition.classes.KeyStore;
-import com.contest.competition.classes.ShareApp;
 import com.contest.competition.classes.interfaces.HomeRvListener;
 import com.contest.competition.classes.models.ArrayHolder;
 import com.contest.competition.classes.models.ContestData;
@@ -71,9 +69,9 @@ public class ContestRvData {
                 postData = mArrayHolder.getHomePostdata().get(position);
                 showRecyclerView(postData,holder,mContext,mHomeRvListener,position,loginUsername);
             }else Toaster.setToaster(mContext,"Please refresh a page");
-        }else if(check == SinglePostsRvData.FEED_RV){
-            if(position <= mArrayHolder.getFeedData().size()) {
-                postData = mArrayHolder.getFeedData().get(position);
+        }else if(check == SinglePostsRvData.Explore_Rv){
+            if(position <= mArrayHolder.getExploreData().size()) {
+                postData = mArrayHolder.getExploreData().get(position);
                 showRecyclerView(postData,holder,mContext,mHomeRvListener,position,loginUsername);
             }else Toaster.setToaster(mContext,"Please refresh a page");
         }

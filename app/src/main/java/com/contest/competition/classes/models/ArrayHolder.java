@@ -26,24 +26,29 @@ public class ArrayHolder {
     private ArrayList<CreditsData> mCreditsData = new ArrayList<>();
     private ArrayList<PostData> mHomePostdata = new ArrayList<>();
     private ArrayList<PostData> mTrendingData = new ArrayList<>();
-    private ArrayList<PostData> mFeedData = new ArrayList<>();
+    private ArrayList<PostData> mExploreData = new ArrayList<>();
 
 
     public void setPostBoostData(ArrayList<BoostData> data){
         mPostBoostData.addAll(data);
     }
 
-    public void setFeedData(ArrayList<PostData> feedData) {
-        this.mFeedData = feedData;
+    public void setExploreData(ArrayList<PostData> exploreData) {
+        this.mExploreData = exploreData;
     }
 
-    public ArrayList<PostData> getFeedData() {
-        return mFeedData;
+    public ArrayList<PostData> getExploreData() {
+        return mExploreData;
     }
 
     public void setHomePostdata(PostData homePostdata){
         mHomePostdata.add(homePostdata);
     }
+
+    public void setHomePostdata(ArrayList<PostData> homePostdata){
+        mHomePostdata.addAll(homePostdata);
+    }
+
 
     public void setTrendingData(ArrayList<PostData> trendingData){
         mTrendingData.addAll(trendingData);

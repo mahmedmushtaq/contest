@@ -8,9 +8,8 @@ import android.util.Log;
 import com.contest.competition.classes.Validator;
 import com.contest.competition.classes.webfiles.Addresses;
 import com.contest.competition.classes.webfiles.FormsFiles;
-import com.contest.competition.storage.sharedpreferences.LoginSharedPrefer;
 import com.contest.competition.storage.sharedpreferences.sharedpreferencesetter.LoginSharedPreferenceSetter;
-import com.contest.competition.utils.activities.front.HomeActivity;
+import com.contest.competition.utils.activities.front.ExploreActivity;
 import com.contest.competition.utils.views.Dialoger;
 import com.contest.competition.utils.views.Toaster;
 
@@ -95,7 +94,7 @@ public class LoginProcessRequest {
 
                                     LoginSharedPreferenceSetter.setLoginSharedPreference(context,username,name,id,profilePath,openFirePassword,email,password,"",mRememberMe);
 
-                                    Intent intent = new Intent(context, HomeActivity.class);
+                                    Intent intent = new Intent(context, ExploreActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     context.startActivity(intent);
                                 }else{
